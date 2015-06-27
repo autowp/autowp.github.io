@@ -3,6 +3,7 @@
     <head>
         <title>Peugeot CAN</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <style type="text/css">
 .message {
@@ -75,22 +76,71 @@
         <div class="container">
         
             <div class="message">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
+                <div class="description">
+                    <p>"Зажигание"</p>
+                    <p>Отправляется раз в 200мс</p>
+                </div>
+                <div class="id">036</div>
+                
+                
+                <div class="structure clearfix">
+                    <div class="bits">
+                        00001110 00000000 00000000 00001111 00000001 00000000 00000000 10100000
+                        <div class="info">0E 00 00 0F 01 00 00 A0</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="message">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Название текущего трека</p>
+                    <p><span class="label label-danger">ISO 15765-2</span></p>
+                </div>
+                <div class="id">0A4</div>
+                <div class="structure clearfix margin-2">
+                    <div class="bits">00100000 00000000 010</div>
+                    <div class="bits">
+                        A
+                        <div class="info offset-2">флаг наличия имени исполнителя далее</div>
+                    </div>
+                    <div class="bits">1000&nbsp;</div>
+                    <div class="bits">
+                        NNNNNNNN
+                        <div class="info offset-1">номер дорожки</div>
+                    </div>
+                    <div class="bits">&nbsp;[</div>
+                    <div class="bits">
+                        TEXT_DATA
+                        <div class="info">имя исполнителя и название трека</div>
+                    </div>
+                    <div class="bits">]</div>
+                </div>
+            </div>
+        
+            <div class="message">
                 <div class="source">Source: <span class="label label-primary">Parktronic</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="id">0E1</div>
-                
 
-                <div class="structure clearfix margin-8">
+                <div class="structure clearfix margin-10">
                     <div class="bits">XXXX</div>
                     <div class="bits">0000&nbsp;</div>
                     <div class="bits">
                         JJJJ
-                        <div class="info offset-8">0000 или 1111 - отключить или включить звуковую индикацию</div>
+                        <div class="info offset-10">0000 или 1111 - отключить или включить звуковую индикацию</div>
                     </div>
                     <div class="bits">0000 00</div>
                     <div class="bits">
                         HHHHHH 
-                        <div class="info offset-7">период "писков". 000000 - непрерывное пищание, 111111 - бесконечный период (нет писков)</div>
+                        <div class="info offset-7">
+                            период "писков"<br /> 
+                            000000 - непрерывное пищание<br /> 
+                            111111 - бесконечный период (нет писков)
+                        </div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
