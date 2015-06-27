@@ -4,26 +4,465 @@
         <title>Peugeot CAN</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <style type="text/css">
+.message {
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.message .id {
+    float: left;
+    margin: 0 10px;
+    font-family: monospace;
+    font-size: 150%;
+}
+
+.message .bits {
+    float: left;
+    position: relative;
+    font-family: monospace;
+}
+
+.message .bits .info {
+    position: absolute;
+    left: 4px;
+    border-left: 1px dotted #000;
+    border-bottom: 1px dotted #000;
+    padding-left: 3px;
+    white-space: nowrap;
+}
+
+.message .bits:hover {
+    font-weight: bold;
+}
+
+.message .bits:hover .info {
+    border-left-style: solid;
+    border-bottom-style: solid;
+}
+
+.offset-1 { padding-top: 20px; }
+.offset-2 { padding-top: 40px; }
+.offset-3 { padding-top: 60px; }
+.offset-4 { padding-top: 80px; }
+.offset-5 { padding-top: 100px; }
+.offset-6 { padding-top: 120px; }
+.offset-7 { padding-top: 140px; }
+.offset-8 { padding-top: 160px; }
+.offset-9 { padding-top: 180px; }
+.offset-10 { padding-top: 200px; }
+.offset-11 { padding-top: 220px; }
+.offset-12 { padding-top: 240px; }
+.offset-13 { padding-top: 260px; }
+
+.margin-1 { padding-bottom: 40px; }
+.margin-2 { padding-bottom: 60px; }
+.margin-3 { padding-bottom: 80px; }
+.margin-4 { padding-bottom: 100px; }
+.margin-5 { padding-bottom: 120px; }
+.margin-6 { padding-bottom: 140px; }
+.margin-7 { padding-bottom: 160px; }
+.margin-8 { padding-bottom: 180px; }
+.margin-9 { padding-bottom: 200px; }
+.margin-10 { padding-bottom: 220px; }
+.margin-11 { padding-bottom: 240px; }
+.margin-12 { padding-bottom: 260px; }
+.margin-13 { padding-bottom: 280px; }
+
+        </style>
     </head>
     <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
+        <div class="container">
         
-        <table>
-            <tr>
-                <td>3F6</td>
-                <td>XXXXXXXX</td>
-                <td>XXXXXXXX</td>
-                <td>XXXX0000</td>
-                <td>00000000</td>
-                <td>00000000</td>
-                <td>Z1000000</td>
-                <td>00000001</td>
-            </tr>
-        </table>
+            <div class="message">
+                <div class="source">Source: </div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="id">0F6</div>
+                <div class="structure clearfix margin-1">
+                    <div class="bits">
+                        10001110 10000111 00001011 10110010 00011100 10001110&nbsp;
+                    </div>
+                    <div class="bits">
+                        TTTTTTTT
+                        <div class="info offset-1">Temperature 0...250 = -40...+85</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        XXXXXXXX
+                        <div class="info">Gear</div>
+                    </div>
+                </div>
+                
+                <table class="table table-condensed" style="width: auto;">
+                    <caption>Gears</caption>
+                    <thead>
+                        <tr><th>Bits</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>A0</td><td>задняя</td></tr>
+                        <tr><td>20</td><td>первая или нейтраль</td></tr>
+                        <tr><td>21</td><td></td></tr>
+                        <tr><td>22</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="message">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Управление списком треков диска</p>
+                    <p><span class="label label-danger">ISO 15765-2</span></p>
+                </div>
+                <div class="id">125</div>
+                <div class="structure clearfix margin-12">
+                    <div class="bits">
+                        01110000&nbsp;
+                        <div class="info offset-12">Показать меню списка треков</div>
+                    </div>
+                    <div class="bits">
+                        TTTTTTTT
+                        <div class="info offset-11">количество треков</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        AAAAAAAA
+                        <div class="info offset-10">offset экрана списка треков</div>
+                    </div>
+                    <div class="bits">&nbsp;0</div>
+                    <div class="bits">
+                        S
+                        <div class="info offset-9">флаг "покажи список треков"</div>
+                    </div>
+                    <div class="bits">X</div>
+                    <div class="bits">
+                        E
+                        <div class="info offset-7">
+                            флаг "список треков сдвинулся" на 1 позицию выше или ниже за пределы 4х видимых в данный момент.<br />
+                            Направление сдвига определяется по BBBB
+                        </div>
+                    </div>
+                    <div class="bits">
+                        BBBB
+                        <div class="info offset-6">offset выбранного трека внутри экрана списка треков</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        MMMMMMMM
+                        <div class="info offset-2">
+                            дескриптор текстовых данных, идущих далее<br />
+                            каждая пара бит соответствует наличию исполнителя и названия трека,<br />
+                            идущих далее пакетами по 20 байт в соответствующем порядке.<br />
+                            Позиции соответствуют позициям на экране, кроме ситуации наличия флага E
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;00000000&nbsp;</div>
+                    <div class="bits">[[</div>
+                    <div class="bits">
+                        JJJJJJJJ x20
+                        <div class="info offset-1">20 байт имени исполнителя</div>
+                    </div>
+                    <div class="bits">] [</div>
+                    <div class="bits">
+                        HHHHHHHH x20
+                        <div class="info">20 байт названия трека</div>
+                    </div>
+                    <div class="bits">] x0-4]</div>
+                </div>
+                
+                <div class="id">125</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        00000000
+                        <div class="info">Спрятать меню списка треков. (Нажатие на OK после выбора песни в LIST, Нажатие на ESC, таймаут)</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="message">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Индикация текущего уровня громкости</p>
+                    <p>Через 2.5 секунды после BBB=000 всплывающее окно громкости сворачивается</p>
+                </div>
+                <div class="id">1A5</div>
+                <div class="structure clearfix margin-2">
+                    <div class="bits">
+                        BBB
+                        <div class="info offset-1">
+                            000 во время поворота рукоятки громкости<br />
+                            111 в остальных случаях
+                        </div>
+                    </div>
+                    <div class="bits">
+                        VVVVV
+                        <div class="info">уровень громкости от 0 до 30</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Отправляется каждые 500мс</p>
+                </div>
+                <div class="id">1E5</div>
+                <div class="structure clearfix margin-13">
+                    <div class="bits">
+                        S
+                        <div class="info offset-13">показать меню управление balance (left/right)</div>
+                    </div>
+                    <div class="bits">
+                        sssssss
+                        <div class="info offset-12">balance (left/right)</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        F
+                        <div class="info offset-11">показать меню управление balance (rear/front)</div>
+                    </div>
+                    <div class="bits">
+                        fffffff
+                        <div class="info offset-10">balance (rear/front)</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        B
+                        <div class="info offset-9">показать меню управление bass</div>
+                    </div>
+                    <div class="bits">
+                        bbbbbbb
+                        <div class="info offset-8">bass</div>
+                    </div>
+                    <div class="bits">&nbsp;00111111</div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        T
+                        <div class="info offset-7">показать меню управление treble</div>
+                    </div>
+                    <div class="bits">
+                        ttttttt
+                        <div class="info offset-6">treble</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        L
+                        <div class="info offset-5">показать меню loudness correction</div>
+                    </div>
+                    <div class="bits">
+                        l
+                        <div class="info offset-4">значение loudness correction</div>
+                    </div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        A
+                        <div class="info offset-3">показать меню управления automatic volume</div>
+                    </div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        aaa
+                        <div class="info offset-2">000 или 111 - значение automatic volume</div>
+                    </div>
+                    <div class="bits">&nbsp;0</div>
+                    <div class="bits">
+                        P
+                        <div class="info offset-1">показать меню musical ambiance</div>
+                    </div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        ppppp
+                        <div class="info">значение musical ambiance</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <table class="table table-condensed" style="width: auto;">
+                                <caption>Bass/Treble/Balances values</caption>
+                                <thead>
+                                    <tr><th>Bits</th><th>Value</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>011 0110</td><td>-9</td></tr>
+                                    <tr><td>011 0111</td><td>-8</td></tr>
+                                    <tr><td>011 1000</td><td>-7</td></tr>
+                                    <tr><td>011 1001</td><td>-6</td></tr>
+                                    <tr><td>011 1010</td><td>-5</td></tr>
+                                    <tr><td>011 1011</td><td>-4</td></tr>
+                                    <tr><td>011 1100</td><td>-3</td></tr>
+                                    <tr><td>011 1101</td><td>-2</td></tr>
+                                    <tr><td>011 1110</td><td>-1</td></tr>
+                                    <tr><td>011 1111</td><td>0</td></tr>
+                                    <tr><td>100 0000</td><td>1</td></tr>
+                                    <tr><td>100 0001</td><td>2</td></tr>
+                                    <tr><td>100 0010</td><td>3</td></tr>
+                                    <tr><td>100 0011</td><td>4</td></tr>
+                                    <tr><td>100 0100</td><td>5</td></tr>
+                                    <tr><td>100 0101</td><td>6</td></tr>
+                                    <tr><td>100 0110</td><td>7</td></tr>
+                                    <tr><td>100 0111</td><td>8</td></tr>
+                                    <tr><td>100 1000</td><td>9</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <table class="table table-condensed" style="width: auto;">
+                                <caption>Musical ambiance values</caption>
+                                <thead>
+                                    <tr><th>Bits</th><th>Value</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>0 0011</td><td>None</td></tr>
+                                    <tr><td>0 0111</td><td>Classical</td></tr>
+                                    <tr><td>0 1011</td><td>Jazz-Blues</td></tr>
+                                    <tr><td>0 1111</td><td>Pop-Rock</td></tr>
+                                    <tr><td>1 0011</td><td>Vocal</td></tr>
+                                    <tr><td>1 0111</td><td>Techno</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+            <div class="message clearfix">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: <span class="label label-success">Radio</span></div>
+                <div class="description">
+                    <p>Достаточно отправить один раз после подачи питания на магнитолу</p>
+                </div>
+                <div class="id">2B6</div>
+                <div class="bits">
+                    VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV
+                    <div class="info">ASCII coded last 8 VIN digits</div>
+                </div>
+            </div>
+        
+            <div class="message margin-4 clearfix">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Current playing CD track info</p>
+                </div>
+                <div class="id">3A5</div>
+                <div class="bits">
+                    NNNNNNNN
+                    <div class="info offset-4">Track number</div>
+                </div>
+                <div class="bits">&nbsp;</div>
+                <div class="bits">
+                    MMMMMMMM
+                    <div class="info offset-3">Total minutes, FF is "--"</div>
+                </div>
+                <div class="bits">&nbsp;</div>
+                <div class="bits">
+                    SSSSSSSS
+                    <div class="info offset-2">Total seconds, FF is "--"</div>
+                </div>
+                <div class="bits">&nbsp;</div>
+                <div class="bits">
+                    mmmmmmmm
+                    <div class="info offset-1">Current minutes, FF is "--"</div>
+                </div>
+                <div class="bits">&nbsp;</div>
+                <div class="bits">
+                    ssssssss
+                    <div class="info">Current seconds, 7F is "--"</div>
+                </div>
+            </div>
+        
+            <div class="message margin-3 clearfix">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Нажатия на кнопки (1 пока держишь)  Band и Source не отображаются в этом сообщении</p>
+                </div>
+                <div class="id">3E5</div>
+
+                <div class="bits">0</div>
+                <div class="bits">
+                    L
+                    <div class="info offset-2">Menu</div>
+                </div>
+                <div class="bits">00000</div>
+                <div class="bits">
+                    J
+                    <div class="info offset-1">Clim</div>
+                </div>
+                <div class="bits">&nbsp;0</div>
+                <div class="bits">
+                    H
+                    <div class="info">Trip</div>
+                </div>
+                <div class="bits">00000</div>
+                <div class="bits">
+                    G
+                    <div class="info offset-3">Audio</div>
+                </div>
+                <div class="bits">&nbsp;0</div>
+                <div class="bits">
+                    Q
+                    <div class="info offset-2">Ok</div>
+                </div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    M
+                    <div class="info offset-1">Esc</div>
+                </div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    K
+                    <div class="info">Dark</div>
+                </div>
+                <div class="bits">00 00000000 00000000 0</div>
+                <div class="bits">
+                    R
+                    <div class="info offset-3">Up</div>
+                </div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    S
+                    <div class="info offset-2">Down</div>
+                </div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    P
+                    <div class="info offset-1">Right</div>
+                </div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    N
+                    <div class="info">Left</div>
+                </div>
+            </div>
             
+            <div class="message margin-2 clearfix">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Date (possible) and time</p>
+                </div>
+                <div class="id">3F6</div>
+                <div class="bits">
+                    XXXXXXXX XXXXXXXX XXXX
+                    <div class="info">time in seconds</div>
+                </div>
+                <div class="bits">0000 00000000 00000000&nbsp;</div>
+                <div class="bits">
+                    Z
+                    <div class="info">
+                        Time format<br />
+                        0 - 12h<br />
+                        1 - 24h
+                    </div>
+                </div>
+                <div class="bits"> 1000000 00000001</div>
+            </div>
             
-            X - время в секундах
-            Z - 12h/24h
+        </div>
     </body>
 </html>
