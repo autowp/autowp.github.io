@@ -104,6 +104,7 @@
                     <tr><td>1E0</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#1E5">1E5</a></td><td>7</td><td></td><td>500</td><td>Меню аудио настроек</td></tr>
                     <tr><td>1ED</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><a href="#21F">21F</a></td><td></td><td></td><td></td><td>Подрулевой переключатель</td></tr>
                     <tr><td>225</td><td></td><td></td><td></td><td>Частота радио</td></tr>
                     <tr><td>265</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>2A5</td><td></td><td></td><td></td><td></td></tr>
@@ -589,6 +590,49 @@
                     </div>
                 </div>
 
+            </div>
+            
+            <div class="message" id="21F">
+                <div class="source">Source: </div>
+                <div class="dest">Dest: <span class="label label-success">Radio</span></div>
+                <div class="description">
+                    <p>Подрулевой переключатель мультимедиа</p>
+                    <p>При отправке состояния "нажато", кнопка считается таковой до получения сообщения "отжато"</p>
+                </div>
+                <div class="id">21F</div>
+                <div class="structure clearfix margin-6">
+                    <div class="bits">
+                        F
+                        <div class="info offset-6">Forward</div>
+                    </div>
+                    <div class="bits">
+                        B
+                        <div class="info offset-5">Backward</div>
+                    </div>
+                    <div class="bits">
+                        X
+                        <div class="info offset-4">Unknown not constant value</div>
+                    </div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        U
+                        <div class="info offset-3">Volume up</div>
+                    </div>
+                    <div class="bits">
+                        D
+                        <div class="info offset-2">Volume down</div>
+                    </div>
+                    <div class="bits">
+                        S
+                        <div class="info offset-1">Source</div>
+                    </div>
+                    <div class="bits">0&nbsp;</div>
+                    <div class="bits">
+                        RRRRRRRR 
+                        <div class="info">Кручение ролика. Последовательные значения.</div>
+                    </div>
+                    <div class="bits">&nbsp;00000000</div>
+                </div>
             </div>
         
             <div class="message clearfix" id="2B6">
