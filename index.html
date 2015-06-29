@@ -92,11 +92,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><a href="#036">036</a></td><td>8</td><td></td><td>200</td><td>Зажигание</td></tr>
+                    <tr><td><a href="#036">036</a></td><td>8</td><td></td><td>200</td><td>BSI Ignition</td></tr>
                     <tr><td>09F</td><td></td><td></td><td></td><td>ISO 15765-2 подтверждение для 0A4</td></tr>
-                    <tr><td><a href="#0A4">0A4</a></td><td>4+</td><td></td><td></td><td>Название текущего трека, ISO 15765-2, подверждение на 09F</td></tr>
+                    <tr><td><a href="#0A4">0A4</a></td><td>4+</td><td></td><td></td><td>Current CD track, ISO 15765-2, подверждение на 09F</td></tr>
                     <tr><td>0DF</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#0E1">0E1</a></td><td>7</td><td></td><td></td><td>Парктроник</td></tr>
+                    <tr><td><a href="#0E1">0E1</a></td><td>7</td><td></td><td></td><td>Parktronic</td></tr>
                     <tr><td><a href="#0F6">0F6</a></td><td>8</td><td></td><td>500</td><td>Передача, температура, ...</td></tr>
                     <tr><td>11F</td><td>3</td><td>30 00 0A</td><td></td><td>Нажатие на BAND, подтверждение ISO 15765-2</td></tr>
                     <tr><td><a href="#125">125</a></td><td>1 or 6+</td><td></td><td></td><td>Управление списком треков диска, списком радиостанций, ISO 15765-2</td></tr>
@@ -105,9 +105,9 @@
                     <tr><td>165</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>167</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>1A1</td><td>8</td><td></td><td>200</td><td>Информационное сообщение</td></tr>
-                    <tr><td><a href="#1A5">1A5</a></td><td>1</td><td></td><td></td><td>Громкость</td></tr>
+                    <tr><td><a href="#1A5">1A5</a></td><td>1</td><td></td><td></td><td>Sound volume</td></tr>
                     <tr><td>1E0</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#1E5">1E5</a></td><td>7</td><td></td><td>500</td><td>Меню аудио настроек</td></tr>
+                    <tr><td><a href="#1E5">1E5</a></td><td>7</td><td></td><td>500</td><td>Audi settings</td></tr>
                     <tr><td>1ED</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#21F">21F</a></td><td>3</td><td></td><td> 100</td><td>Подрулевой переключатель</td></tr>
                     <tr><td>225</td><td></td><td></td><td></td><td>Частота радио</td></tr>
@@ -117,8 +117,8 @@
                     <tr><td>325</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>365</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#3A5">3A5</a></td><td>5</td><td></td><td>1000</td><td>Время проигрываемого трека</td></tr>
-                    <tr><td><a href="#3E5">3E5</a></td><td>6</td><td></td><td>    </td><td>Нажатия на кнопки магнитолы</td></tr>
-                    <tr><td><a href="#3F6">3F6</a></td><td>7</td><td></td><td>1000</td><td>Время</td></tr>
+                    <tr><td><a href="#3E5">3E5</a></td><td>6</td><td></td><td>    </td><td>Radio keypad presses</td></tr>
+                    <tr><td><a href="#3F6">3F6</a></td><td>7</td><td></td><td>1000</td><td>Time</td></tr>
                     <tr><td>520</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>525</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>5E0</td><td></td><td></td><td></td><td></td></tr>
@@ -163,12 +163,12 @@
                     <div class="bits">1000&nbsp;</div>
                     <div class="bits">
                         NNNNNNNN
-                        <div class="info offset-1">номер дорожки</div>
+                        <div class="info offset-1">track nubmer</div>
                     </div>
                     <div class="bits">&nbsp;[</div>
                     <div class="bits">
                         TEXT_DATA
-                        <div class="info">имя исполнителя и название трека</div>
+                        <div class="info">author & track name</div>
                     </div>
                     <div class="bits">]</div>
                 </div>
@@ -176,7 +176,7 @@
         
             <div class="message" id="0E1">
                 <div class="source">Source: <span class="label label-primary">Parktronic</span></div>
-                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
                 <div class="id">0E1</div>
 
                 <div class="structure clearfix margin-10">
@@ -198,34 +198,34 @@
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         III
-                        <div class="info offset-6">левый задний</div>
+                        <div class="info offset-6">rear left</div>
                     </div>
                     <div class="bits">
                         KKKKK 
-                        <div class="info offset-5">центр задний</div>
+                        <div class="info offset-5">rear center</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         LLL
-                        <div class="info offset-4">правый задний</div>
+                        <div class="info offset-4">rear right</div>
                     </div>
                     <div class="bits">
                         MMMMM 
-                        <div class="info offset-3">левый передний</div>
+                        <div class="info offset-3">front left</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         QQQ
-                        <div class="info offset-2">центр передний</div>
+                        <div class="info offset-2">front center</div>
                     </div>
                     <div class="bits">
                         RRR
-                        <div class="info offset-1">правый передний</div>
+                        <div class="info offset-1">front right</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         P
-                        <div class="info">показать окно парктроника</div>
+                        <div class="info">show parktronic window</div>
                     </div>
                     <div class="bits">0 00000000</div>
                 </div>
@@ -465,7 +465,7 @@
                     </div>
                     <div class="bits">
                         VVVVV
-                        <div class="info">уровень громкости от 0 до 30</div>
+                        <div class="info">sound volume from 0 to 30</div>
                     </div>
                 </div>
             </div>
