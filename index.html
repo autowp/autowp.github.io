@@ -95,7 +95,7 @@
                     <tr><td><a href="#036">036</a></td><td>8</td><td></td><td>200</td><td>BSI Ignition</td></tr>
                     <tr><td>09F</td><td></td><td></td><td></td><td>ISO 15765-2 подтверждение для 0A4</td></tr>
                     <tr><td><a href="#0A4">0A4</a></td><td>4+</td><td></td><td></td><td>Current CD track, ISO 15765-2, подверждение на 09F</td></tr>
-                    <tr><td>0DF</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><a href="#0DF">0DF</a></td><td>not periodic</td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#0E1">0E1</a></td><td>7</td><td></td><td></td><td>Parktronic</td></tr>
                     <tr><td><a href="#0F6">0F6</a></td><td>8</td><td></td><td>500</td><td>Передача, температура, ...</td></tr>
                     <tr><td>11F</td><td>3</td><td>30 00 0A</td><td></td><td>Нажатие на BAND, подтверждение ISO 15765-2</td></tr>
@@ -106,7 +106,7 @@
                     <tr><td>167</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td>1A1</td><td>8</td><td></td><td>200</td><td>Информационное сообщение</td></tr>
                     <tr><td><a href="#1A5">1A5</a></td><td>1</td><td></td><td></td><td>Sound volume</td></tr>
-                    <tr><td>1E0</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><a href="#1E0">1E0</a></td><td></td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#1E5">1E5</a></td><td>7</td><td></td><td>500</td><td>Audi settings</td></tr>
                     <tr><td>1ED</td><td></td><td></td><td></td><td></td></tr>
                     <tr><td><a href="#21F">21F</a></td><td>3</td><td></td><td> 100</td><td>Подрулевой переключатель</td></tr>
@@ -171,6 +171,28 @@
                         <div class="info">author & track name</div>
                     </div>
                     <div class="bits">]</div>
+                </div>
+            </div>
+            
+            <div class="message" id="0DF">
+                <div class="source">Source: <span class="label label-primary">Radio or Display</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display or Display</span></div>
+                <div class="id">0DF</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        M
+                        <div class="info offset-3">Set to 1 when main menu or one of ok-menu opened</div>
+                    </div>
+                    <div class="bits">0010000 01000001 01</div>
+                    <div class="bits">
+                        Z
+                        <div class="info">
+                            Set to 1 when one of popup opens:<br />
+                            main menu, track list, PTY list, audio menu.<br />
+                            Possible that signals to start capture arrow keys presses by display
+                        </div>
+                    </div>
+                    <div class="bits">10000</div>
                 </div>
             </div>
         
@@ -468,6 +490,22 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="message" id="1E0">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="id">1E0</div>
+                <div class="structure clearfix">
+                    <div class="bits">01100010 00000000 10000010 00000000 10</div>
+                    <div class="bits">
+                        T 
+                        <div class="info">
+                            Activate radio text
+                        </div>
+                    </div>
+                    <div class="bits">00000</div>
+                </div>
+            </div>
 
             <div class="message" id="1E5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
@@ -646,13 +684,22 @@
                     <p>RDS</p>
                 </div>
                 <div class="id">265</div>
-                <div class="structure clearfix margin-2">
-                    <div class="bits">100</div>
+                <div class="structure clearfix margin-4">
+                    <div class="bits">
+                        S
+                        <div class="info offset-4">Activate RDS search</div>
+                    </div>
+                    <div class="bits">00</div>
                     <div class="bits">
                         T
                         <div class="info">TA</div>
                     </div>
-                    <div class="bits">0000&nbsp;</div>
+                    <div class="bits">000</div>
+                    <div class="bits">
+                        R
+                        <div class="info offset-3">REG mode activated</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
                     <div class="bits">
                         P
                         <div class="info offset-2">PTY</div>
@@ -759,7 +806,9 @@
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
-                    <p>Нажатия на кнопки (1 пока держишь)  Band и Source не отображаются в этом сообщении</p>
+                    <p>Нажатия на кнопки (1 пока держишь)</p>
+                    <p>Band и Source не отображаются в этом сообщении</p>
+                    <p>Buttons Menu, Clim &amp; Trip switches display to that modes</p>
                 </div>
                 <div class="id">3E5</div>
 
