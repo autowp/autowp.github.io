@@ -88,42 +88,267 @@
                         <th>Length</th>
                         <th>Data</th>
                         <th>Period</th>
+                        <th>Source</th>
                         <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><a href="#036">036</a></td><td> 8</td><td></td><td>200</td>         <td>BSI Ignition</td></tr>
-                    <tr><td>               09F    </td><td>  </td><td></td><td></td>            <td>ISO 15765-2 подтверждение для 0A4</td></tr>
-                    <tr><td><a href="#0A4">0A4</a></td><td>4+</td><td></td><td>not periodic</td><td>Current CD track, ISO 15765-2, подверждение на 09F</td></tr>
-                    <tr><td><a href="#0DF">0DF</a></td><td> 3</td><td></td><td>not periodic</td><td></td></tr>
-                    <tr><td><a href="#0E1">0E1</a></td><td> 7</td><td></td><td>100</td>         <td>Parktronic</td></tr>
-                    <tr><td><a href="#0F6">0F6</a></td><td> 8</td><td></td><td>500</td>         <td>Передача, температура, ...</td></tr>
-                    <tr><td>11F</td><td>3</td><td>30 00 0A</td><td></td><td>Нажатие на BAND, подтверждение ISO 15765-2</td></tr>
-                    <tr><td><a href="#125">125</a></td><td>1 or 6+</td><td></td><td>not periodic</td><td>Управление списком треков диска, списком радиостанций, ISO 15765-2</td></tr>
-                    <tr><td>131</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>15B</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>165</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>167</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>1A1</td><td>8</td><td></td><td>200</td><td>Информационное сообщение</td></tr>
-                    <tr><td><a href="#1A5">1A5</a></td><td>1</td><td></td><td></td><td>Sound volume</td></tr>
-                    <tr><td><a href="#1E0">1E0</a></td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#1E5">1E5</a></td><td>7</td><td></td><td>500</td><td>Audi settings</td></tr>
-                    <tr><td>1ED</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#21F">21F</a></td><td>3</td><td></td><td> 100</td><td>Подрулевой переключатель</td></tr>
-                    <tr><td>225</td><td></td><td></td><td></td><td>Частота радио</td></tr>
-                    <tr><td><a href="#265">265</a></td><td>4</td><td></td><td></td><td>RDS</td></tr>
-                    <tr><td>2A5</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#2B6">2B6</a></td><td>8</td><td></td><td>not periodic</td><td>VIN for Radio</td></tr>
-                    <tr><td>325</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>365</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td><a href="#3A5">3A5</a></td><td>5</td><td></td><td>1000</td><td>Время проигрываемого трека</td></tr>
-                    <tr><td><a href="#3E5">3E5</a></td><td>6</td><td></td><td>    </td><td>Radio keypad presses</td></tr>
-                    <tr><td><a href="#3F6">3F6</a></td><td>7</td><td></td><td>1000</td><td>Time</td></tr>
-                    <tr><td>520</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>525</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>5E0</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>5E5</td><td></td><td></td><td></td><td></td></tr>
-                    <tr><td>5EB</td><td></td><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td><a href="#036">036</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>200</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>BSI Ignition</td>
+                    </tr>
+                    <tr>
+                        <td>09F</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>ISO 15765-2 подтверждение для 0A4</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#0A4">0A4</a></td>
+                        <td>4+</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Current CD track, ISO 15765-2, подверждение на 09F</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#0DF">0DF</a></td>
+                        <td>3</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#0E1">0E1</a></td>
+                        <td>7</td>
+                        <td></td>
+                        <td>100</td>
+                        <td><span class="label label-primary">Parktronic</span></td>
+                        <td>Parktronic</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#0F6">0F6</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>500</td>
+                        <td></td>
+                        <td>Gear, temperature, ...</td>
+                    </tr>
+                    <tr>
+                        <td>11F</td>
+                        <td>3</td>
+                        <td>30 00 0A</td>
+                        <td></td>
+                        <td></td>
+                        <td>Нажатие на BAND, подтверждение ISO 15765-2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#125">125</a></td>
+                        <td>1 or 6+</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Управление списком треков диска, списком радиостанций, ISO 15765-2</td>
+                    </tr>
+                    <tr>
+                        <td>131</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>15B</td>
+                        <td>9</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>165</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>167</td>
+                        <td>8</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1A1</td>
+                        <td>8</td>
+                        <td></td>
+                        <td>200</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>Информационное сообщение</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#1A5">1A5</a></td>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Sound volume</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#1E0">1E0</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#1E5">1E5</a></td>
+                        <td>7</td>
+                        <td></td>
+                        <td>500</td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Audio settings</td>
+                    </tr>
+                    <tr>
+                        <td>1ED</td>
+                        <td>1</td>
+                        <td>10</td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#21F">21F</a></td>
+                        <td>3</td>
+                        <td></td>
+                        <td>100</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>Подрулевой переключатель</td>
+                    </tr>
+                    <tr>
+                        <td>225</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Частота радио</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#265">265</a></td>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>RDS</td>
+                    </tr>
+                    <tr>
+                        <td>2A5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#2B6">2B6</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>VIN for Radio</td>
+                    </tr>
+                    <tr>
+                        <td>325</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>365</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#3A5">3A5</a></td>
+                        <td>5</td>
+                        <td></td>
+                        <td>1000</td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Время проигрываемого трека</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#3E5">3E5</a></td>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="label label-primary">Radio</span></td>
+                        <td>Radio keypad presses</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#3F6">3F6</a></td>
+                        <td>7</td>
+                        <td></td>
+                        <td>1000</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td>Time</td>
+                    </tr>
+                    <tr>
+                        <td>520</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>525</td>
+                        <td>8</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5E0</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5E5</td>
+                        <td>8</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Display</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5EB</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         
@@ -168,7 +393,7 @@
                     <div class="bits">&nbsp;[</div>
                     <div class="bits">
                         TEXT_DATA
-                        <div class="info">author & track name</div>
+                        <div class="info">author &amp; track name</div>
                     </div>
                     <div class="bits">]</div>
                 </div>
