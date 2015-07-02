@@ -222,12 +222,12 @@
                         <td>Audio settings</td>
                     </tr>
                     <tr>
-                        <td>1ED</td>
+                        <td><a href="#1ED">1ED</a></td>
                         <td>1</td>
                         <td>10</td>
                         <td>not periodic</td>
                         <td><span class="label label-primary">Display</span></td>
-                        <td></td>
+                        <td>Display conditioning commands</td>
                     </tr>
                     <tr>
                         <td><a href="#21F">21F</a></td>
@@ -877,7 +877,25 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
+            
+            <div class="message" id="1ED">
+                <div class="source">Source: <span class="label label-primary">Display</span></div>
+                <div class="dest">Dest: </div>
+                <div class="description">
+                    <p>Display conditioning commands</p>
+                </div>
+                <div class="id">1ED</div>
+                <div class="structure clearfix margin-3">
+                    <div class="bits">
+                        XXXXXXXX
+                        <div class="info">
+                            10 - Default value<br />
+                            00 - Activate simultaneous LH-RH control<br />
+                            18 - Cut air conditioning (A/C OFF)<br />
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="message" id="21F">
