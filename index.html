@@ -403,10 +403,12 @@
                 <div class="source">Source: <span class="label label-primary">Radio or Display</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display or Display</span></div>
                 <div class="id">0DF</div>
-                <div class="structure clearfix">
+                <div class="structure clearfix margin-4">
                     <div class="bits">
                         M
-                        <div class="info offset-3">Set to 1 when main menu or one of ok-menu opened</div>
+                        <div class="info offset-4">
+                            Set to 1 when main menu, when one of ok-menu opened or when Dark pressed (for a short time)
+                        </div>
                     </div>
                     <div class="bits">0010000 01000001 01</div>
                     <div class="bits">
@@ -414,6 +416,7 @@
                         <div class="info">
                             Set to 1 when one of popup opens:<br />
                             main menu, track list, PTY list, audio menu.<br />
+                            or when inverse or dark mode enabled (for a short time)<br />
                             Possible that signals to start capture arrow keys presses by display
                         </div>
                     </div>
