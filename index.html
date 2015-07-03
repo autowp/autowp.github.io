@@ -595,13 +595,23 @@
                 <div class="source">Source: <span class="label label-warning">possible BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="id">0F6</div>
-                <div class="structure clearfix margin-2">
+                <div class="structure clearfix margin-3">
                     <div class="bits">
-                        10001110 10000111 00001011 10110010 00011100 10001110&nbsp;
+                        10001110 10000111&nbsp;
                     </div>
                     <div class="bits">
+                        ZZZZZZZZ ZZZZZZZZ ZZZZZZZZ
+                        <div class="info">
+                            Odometer
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;10001110&nbsp;</div>
+                    <div class="bits">
                         TTTTTTTT
-                        <div class="info offset-2">Temperature 0...250 = -40...+85</div>
+                        <div class="info offset-2">
+                            Temperature = round(T/2.0 - 39.5) °C<br />
+                            (0...250 = -40...+85)
+                        </div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
