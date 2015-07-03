@@ -238,6 +238,14 @@
                         <td>Подрулевой переключатель</td>
                     </tr>
                     <tr>
+                        <td><a href="#221">221</a></td>
+                        <td>7</td>
+                        <td>00 FF FF 01 72 FF FF</td>
+                        <td>1000</td>
+                        <td></td>
+                        <td>Trip computer info</td>
+                    </tr>
+                    <tr>
                         <td>225</td>
                         <td></td>
                         <td></td>
@@ -972,6 +980,50 @@
                         <div class="info">Кручение ролика. Последовательные значения.</div>
                     </div>
                     <div class="bits">&nbsp;00000000</div>
+                </div>
+            </div>
+            
+            <div class="message" id="221">
+                <div class="source">Source: </div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Trip computer info</p>
+                </div>
+                
+                <div class="id">221</div>
+                <div class="structure clearfix margin-9">
+                    <div class="bits">0000</div>
+                    <div class="bits">
+                        T
+                        <div class="info offset-9">1 when trip mode switch down</div>
+                    </div>
+                    <div class="bits">000&nbsp;</div>
+                    <div class="bits">
+                        LLLLLLLL LLLLLLLL
+                        <div class="info offset-6">
+                            Liters per 100km<br />
+                            0x0000-0x012C = 0.0-30.0<br />
+                            0x012C-0xFFFF = 30.0
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        RRRRRRRR RRRRRRRR
+                        <div class="info offset-3">
+                            Rest of run on current fuel level<br />
+                            0x0000-0x07D0 = 0-2000 km<br />
+                            0x07D0-0xFFFF = 2000 km
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        FFFFFFFF FFFFFFFF
+                        <div class="info">
+                            Rest of run to finish<br />
+                            0x0000-0xEA5B = 0.0-6000.0 km<br />
+                            0xEA5B-0xFFFF = 6000.0 km
+                        </div>
+                    </div>
                 </div>
             </div>
             
