@@ -118,6 +118,14 @@
                         <td>Current CD track, ISO 15765-2, подверждение на 09F</td>
                     </tr>
                     <tr>
+                        <td><a href="#0B6">0B6</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>100</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>BSI RPM/Speed</td>
+                    </tr>
+                    <tr>
                         <td><a href="#0DF">0DF</a></td>
                         <td>3</td>
                         <td></td>
@@ -156,6 +164,14 @@
                         <td>not periodic</td>
                         <td><span class="label label-primary">Radio</span></td>
                         <td>Управление списком треков диска, списком радиостанций, ISO 15765-2</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#128">128</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>not periodic</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>131</td>
@@ -371,11 +387,16 @@
                 <div class="id">036</div>
                 
                 
-                <div class="structure clearfix">
-                    <div class="bits">
-                        00001110 00000000 00000000 00001111 00000001 00000000 00000000 10100000
-                        <div class="info">0E 00 00 0F 01 00 00 A0</div>
-                    </div>
+                <div class="structure clearfix margin-2">
+                    <div class="bits">00001110 00000000 00000000 00</div>
+                        <div class="bits">0
+                          <div class="info offset-2">Dashboard lightning enabled</div>
+                        </div>
+                        <div class="bits">0</div>
+                        <div class="bits">1111&nbsp;
+                          <div class="info offset-1">Brightness for dashboard lightning</div>
+                        </div>
+                        <div class="bits">00000001 00000000 00000000 10100000</div>
                 </div>
             </div>
         
@@ -407,6 +428,28 @@
                 </div>
             </div>
             
+            <div class="message" id="0B6">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: <span class="label label-success">Radio</span></div>
+                <div class="id">0B6</div>
+                <div class="structure clearfix margin-4">
+                    <div class="bits">
+                        MMMM MMM
+                        <div class="info offset-1">
+                            turns per minute of motor
+                        </div>
+                    </div>
+                    <div class="bits">000&nbsp;</div>
+                    <div class="bits">
+                        SSSS SSSS&nbsp;
+                        <div class="info">
+                            actual speed  * 100 in km/h
+                        </div>
+                    </div>
+                    <div class="bits">10010110000000111001001111010000</div>
+                </div>
+            </div>
+
             <div class="message" id="0DF">
                 <div class="source">Source: <span class="label label-primary">Radio or Display</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display or Display</span></div>
@@ -705,6 +748,68 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="message" id="128">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: </div>
+                <div class="description">
+                </div>
+                <div class="id">128</div>
+                <div class="structure clearfix margin-12">
+                    <div class="bits">0</div>
+                    <div class="bits">0
+                        <div class="info offset-8">
+                        Driver seat belt warning light
+                        </div>
+                    </div>
+                    <div class="bits">100000 000</div>
+                    <div class="bits">0
+                        <div class="info offset-7">
+                        Any door or trunk open
+                        </div>
+                    </div>
+                    <div class="bits">0000 00000000 00000000&nbsp;</div>
+                    <div class="bits">G
+                        <div class="info offset-6">
+                        sidelights on
+                        </div>
+                    </div>
+                    <div class="bits">F
+                        <div class="info offset-5">
+                        low beam on
+                        </div>
+                    </div>
+                    <div class="bits">E
+                        <div class="info offset-4">
+                        high beam on
+                        </div>
+                    </div>
+                    <div class="bits">D
+                        <div class="info offset-3">
+                        front fog lights on
+                        </div>
+                    </div>
+                    <div class="bits">C
+                        <div class="info offset-2">
+                        rear fog light on
+                        </div>
+                    </div>
+                    <div class="bits">B
+                        <div class="info offset-1">
+                        right indicator on
+                        </div>
+                    </div>
+                    <div class="bits">A 
+                        <div class="info">
+                        left indicator on
+                        </div>
+                    </div>
+                    <div class="bits">0 10000000 10100000 00000001</div>
+                </div>
+            </div>
+            
+            
+            
             
             <div class="message" id="167">
                 <div class="source">Source: <span class="label label-primary">Display</span></div>
