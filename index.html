@@ -118,6 +118,14 @@
                         <td>Current CD track, ISO 15765-2, подверждение на 09F</td>
                     </tr>
                     <tr>
+                        <td><a href="#0B6">0B6</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>100</td>
+                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td>BSI RPM/Speed</td>
+                    </tr>
+                    <tr>
                         <td><a href="#0DF">0DF</a></td>
                         <td>3</td>
                         <td></td>
@@ -412,6 +420,28 @@
                 </div>
             </div>
             
+            <div class="message" id="0B6">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: <span class="label label-success">Radio</span></div>
+                <div class="id">0B6</div>
+                <div class="structure clearfix margin-4">
+                    <div class="bits">
+                        MMMM MMM
+                        <div class="info offset-1">
+                            turns per minute of motor
+                        </div>
+                    </div>
+                    <div class="bits">000&nbsp;</div>
+                    <div class="bits">
+                        SSSS SSSS&nbsp;
+                        <div class="info">
+                            actual speed  * 100 in km/h
+                        </div>
+                    </div>
+                    <div class="bits">10010110000000111001001111010000</div>
+                </div>
+            </div>
+
             <div class="message" id="0DF">
                 <div class="source">Source: <span class="label label-primary">Radio or Display</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display or Display</span></div>
