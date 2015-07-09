@@ -98,8 +98,8 @@
                         <td>8</td>
                         <td></td>
                         <td>200</td>
-                        <td><span class="label label-warning">possible BSI</span></td>
-                        <td>BSI Ignition</td>
+                        <td><span class="label label-primary">BSI</span></td>
+                        <td>BSI Ignition, Dashboard lightning</td>
                     </tr>
                     <tr>
                         <td>09F</td>
@@ -122,7 +122,7 @@
                         <td>8</td>
                         <td></td>
                         <td>100</td>
-                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td><span class="label label-primary">BSI</span></td>
                         <td>BSI RPM/Speed</td>
                     </tr>
                     <tr>
@@ -170,7 +170,7 @@
                         <td>8</td>
                         <td></td>
                         <td>not periodic</td>
-                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td><span class="label label-primary">BSI</span></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -381,20 +381,20 @@
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
                 <div class="description">
-                    <p>"Зажигание"</p>
-                    <p>Отправляется раз в 200мс</p>
+                    <p>BSI Ignition, Dashboard lightning</p>
                 </div>
                 <div class="id">036</div>
                 
                 
                 <div class="structure clearfix margin-2">
                     <div class="bits">00001110 00000000 00000000 00</div>
-                        <div class="bits">0
-                          <div class="info offset-2">Dashboard lightning enabled</div>
+                        <div class="bits">
+                            L
+                            <div class="info offset-2">Dashboard lightning enabled</div>
                         </div>
                         <div class="bits">0</div>
-                        <div class="bits">1111&nbsp;
-                          <div class="info offset-1">Brightness for dashboard lightning</div>
+                        <div class="bits">BBBB&nbsp;
+                            <div class="info offset-1">Brightness for dashboard lightning</div>
                         </div>
                         <div class="bits">00000001 00000000 00000000 10100000</div>
                 </div>
@@ -430,23 +430,23 @@
             
             <div class="message" id="0B6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
-                <div class="dest">Dest: <span class="label label-success">Radio</span></div>
+                <div class="dest">Dest: </div>
                 <div class="id">0B6</div>
-                <div class="structure clearfix margin-4">
+                <div class="structure clearfix margin-1">
                     <div class="bits">
-                        MMMM MMM
+                        MMMMM
                         <div class="info offset-1">
                             turns per minute of motor
                         </div>
                     </div>
                     <div class="bits">000&nbsp;</div>
                     <div class="bits">
-                        SSSS SSSS&nbsp;
+                        SSSSSSSS
                         <div class="info">
-                            actual speed  * 100 in km/h
+                            actual speed * 100 in km/h
                         </div>
                     </div>
-                    <div class="bits">10010110000000111001001111010000</div>
+                    <div class="bits">&nbsp;10010110 00000011 10010011 11010000</div>
                 </div>
             </div>
 
@@ -755,7 +755,7 @@
                 <div class="description">
                 </div>
                 <div class="id">128</div>
-                <div class="structure clearfix margin-12">
+                <div class="structure clearfix margin-8">
                     <div class="bits">0</div>
                     <div class="bits">0
                         <div class="info offset-8">
