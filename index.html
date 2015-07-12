@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Peugeot CAN</title>
+        <title>PSA CAN</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -76,7 +76,7 @@
         <div class="container">
             <div class="jumbotron">
                 <h1>PSA CAN bus</h1>
-                <p>All data ralated to Peugeot 407 '2006</p>
+                <p>All data ralated to Peugeot 407 '2006 and Citroën C4 '2012</p>
                 <a href="https://github.com/autowp/autowp.github.io" class="btn btn-primary">View on github</a>
             </div>
             
@@ -206,11 +206,11 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>1A1</td>
+                        <td><a href="#1A1">1A1</a></td>
                         <td>8</td>
                         <td></td>
                         <td>200</td>
-                        <td><span class="label label-warning">possible BSI</span></td>
+                        <td><span class="label label-primary">BSI</span></td>
                         <td>Informational message</td>
                     </tr>
                     <tr>
@@ -744,7 +744,9 @@
                 <div class="structure clearfix">
                     <div class="bits">
                         00000000
-                        <div class="info">Hide track list menu. (By press OK in list LIST, by ESC or by timeout)</div>
+
+                        QQQ
+                                                <div class="info">Hide track list menu. (By press OK in list LIST, by ESC or by timeout)</div>
                     </div>
                 </div>
             </div>
@@ -829,6 +831,60 @@
                         </div>
                     </div>
                     <div class="bits">00110 00010111 01110000 01111111 11111111 00000000 00000000</div>
+                </div>
+            </div>
+            
+            <div class="message" id="1A1">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Информационное сообщение</p>
+                </div>
+                <div class="id">1A1</div>
+                <div class="structure clearfix margin-4">
+                    <div class="bits">
+                        XXXXXXXX
+                        <div class="info offset-1">
+                            0x80 - show window<br />
+                            0x7F - hide window<br />
+                            0xFF - clear window
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        YYYYYYYY
+		        <div class="info">message code (see table)</div>
+                    </div>
+                    <div class="bits"> 
+                        &nbsp;00000000 00000000 00000000 00000000 00000000 00000000
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <table class="table table-condensed" style="width: auto;">
+	                <caption>Messages</caption>
+	                <thead>
+	                    <tr><th>Hex</th><th>Value (en)</th><th>Value (ru)</th></tr>
+	                </thead>
+	                <tbody>
+	                    <tr><td>64</td><td></td><td>неисправность стояночного тормоза</td></tr>
+	                    <tr><td>67</td><td></td><td>заменить тормознае колодки</td></tr>
+	                    <tr><td>69</td><td></td><td>неисправность подвижного спойлера</td></tr>
+	                    <tr><td>6A</td><td></td><td>неисправность ABS</td></tr>
+	                    <tr><td>6B</td><td></td><td>неисправность ESP/ESR</td></tr>
+	                    <tr><td>6C</td><td></td><td>неисправность подвески</td></tr>
+	                    <tr><td>6D</td><td></td><td>неисправность усилителя рулевого управления</td></tr>
+	                    <tr><td>75</td><td></td><td>неисправность автоматич. регулировки фар</td></tr>
+	                    <tr><td>76</td><td></td><td>неисправность управляемых фар</td></tr>
+	                    <tr><td>78</td><td></td><td>неисправность Airbag</td></tr>
+	                    <tr><td>79</td><td></td><td>неисправность активного капота</td></tr>
+	                    <tr><td>7A</td><td></td><td>неисправность коробки передач</td></tr>
+	                    <tr><td>7B</td><td></td><td>запуск двигателя: Нажать на тормоз</td></tr>
+	                    <tr><td>7D</td><td></td><td>наличие воды в топл. фильтре</td></tr>
+	                    <tr><td>7E</td><td></td><td>неисправность двигателя</td></tr>
+	                    <tr><td>81</td><td></td><td>низкий уровень FAP</td></tr>
+	                </tbody>
+	            </table>
                 </div>
             </div>
         
@@ -1355,7 +1411,6 @@
                 </div>
                 <div class="bits"> 1000000 00000001</div>
             </div>
-            
         </div>
     </body>
 </html>
