@@ -1559,12 +1559,25 @@
                     <p>Radio status</p>
                 </div>
                 <div class="id">165</div>
-                <div class="structure clearfix margin-5">
+                <div class="structure clearfix margin-8">
                     <div class="bits">
                         P
-                        <div class="info offset-4">Radio enabled flag</div>
+                        <div class="info offset-8">Radio enabled flag</div>
                     </div>
-                    <div class="bits">1001100 10110000 0</div>
+                    <div class="bits">1001100 1</div>
+                    <div class="bits">
+                        DD
+                        <div class="info offset-5">
+                            00 - During initialization<br />
+                            01 - CD disk unavailable<br />
+                            10 - CD disk available
+                        </div>
+                    </div>
+                    <div class="bits">
+                        C
+                        <div class="info offset-4">CD changer available</div>
+                    </div>
+                    <div class="bits">0000 0</div>
                     <div class="bits">
                         SSS
                         <div class="info">
