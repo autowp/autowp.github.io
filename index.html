@@ -365,12 +365,12 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>165</td>
+                        <td><a href="#165">165</a></td>
                         <td>4</td>
                         <td>0C 80 00 00</td>
                         <td>100</td>
                         <td><span class="label label-primary">Radio</span></td>
-                        <td></td>
+                        <td>Radio status (enabled, source, ...)</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -1035,7 +1035,7 @@
                         <td>8</td>
                         <td>20 01 02 06 12 1E 20 11</td>
                         <td>not periodic</td>
-                        <td></td>
+                        <td><span class="label label-primary">Radio</span></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1553,7 +1553,30 @@
             </div>
             
             
-            
+            <div class="message" id="165">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="description">
+                    <p>Radio status</p>
+                </div>
+                <div class="id">165</div>
+                <div class="structure clearfix margin-5">
+                    <div class="bits">
+                        P
+                        <div class="info offset-4">Radio enabled flag</div>
+                    </div>
+                    <div class="bits">1001100 10110000 0</div>
+                    <div class="bits">
+                        SSS
+                        <div class="info">
+                            101 - AUX 2<br />
+                            011 - CD Changer<br />
+                            001 - Radio<br />
+                            010 - CD
+                        </div>
+                    </div>
+                    <div class="bits">0000 00000000</div>
+                </div>
+            </div>
             
             <div class="message" id="167">
                 <div class="source">Source: <span class="label label-primary">Display</span></div>
@@ -1623,9 +1646,10 @@
                         <tr><td>0A</td><td>Air suspension ok (picture)</td><td></td></tr>
                         <tr><td>0F</td><td>Risk of particle filter blocking</td><td></td></tr>
                         <tr><td>11</td><td>Suspension faulty: max.speed 90 km/h</td><td></td></tr>
-                        <tr><td>64</td><td></td><td>неисправность стояночного тормоза</td></tr>
+                        <tr><td>64</td><td>Handbrake control faulty: auto handbrake activated</td><td>неисправность стояночного тормоза</td></tr>
                         <tr><td>67</td><td>Brake pads worn</td><td>заменить тормознае колодки</td></tr>
-                        <tr><td>69</td><td></td><td>неисправность подвижного спойлера</td></tr>
+                        <tr><td>68</td><td>Handbrake faulty</td><td></td></tr>
+                        <tr><td>69</td><td>Mobile deflector faulty</td><td>неисправность подвижного спойлера</td></tr>
                         <tr><td>6A</td><td>ABS braking system faulty</td><td>неисправность ABS</td></tr>
                         <tr><td>6B</td><td>ESP / ASR system faulty</td><td>неисправность ESP/ESR</td></tr>
                         <tr><td>6C</td><td>Suspension faulty</td><td>неисправность подвески</td></tr>
@@ -1636,7 +1660,7 @@
                         <tr><td>75</td><td>Automatic headlamp adjustment faulty</td><td>неисправность автоматич. регулировки фар</td></tr>
                         <tr><td>76</td><td>Directional headlamps faulty</td><td>неисправность управляемых фар</td></tr>
                         <tr><td>78</td><td></td><td>неисправность Airbag</td></tr>
-                        <tr><td>79</td><td></td><td>неисправность активного капота</td></tr>
+                        <tr><td>79</td><td>Active bonnet faulty</td><td>неисправность активного капота</td></tr>
                         <tr><td>7A</td><td>Gearbox faulty</td><td>неисправность коробки передач</td></tr>
                         <tr><td>7B</td><td></td><td>запуск двигателя: Нажать на тормоз</td></tr>
                         <tr><td>7D</td><td>Presence of water in diesel fuel filter</td><td>наличие воды в топл. фильтре</td></tr>
@@ -1644,11 +1668,18 @@
                         <tr><td>7F</td><td>Depollution system faulty</td><td></td></tr>
                         <tr><td>81</td><td>Particle filter additive level too low</td><td>низкий уровень FAP</td></tr>
                         <tr><td>83</td><td>Electronic anti-theft faulty</td><td></td></tr>
+                        <tr><td>86</td><td>RH side door faulty</td><td></td></tr>
+                        <tr><td>87</td><td>LH side door faulty</td><td></td></tr>
                         <tr><td>89</td><td>Space measuring system faulty</td><td></td></tr>
                         <tr><td>8A</td><td>Battery charge or electrical supply faulty</td><td></td></tr>
+                        <tr><td>92</td><td><em>Warning message without text</em></td><td></td></tr>
+                        <tr><td>95</td><td><em>Info message without text</em></td><td></td></tr>
+                        <tr><td>96</td><td><em>Info message without text</em></td><td></td></tr>
                         <tr><td>97</td><td>Anti-wander system lane-crossing warning device faulty</td><td></td></tr>
+                        <tr><td>A1</td><td>Parking lamps active</td><td></td></tr>
                         <tr><td>CD</td><td>Cruise control not possible: speed too low</td><td></td></tr>
                         <tr><td>CE</td><td>Control activation not possible: enter the speed</td><td></td></tr>
+                        <tr><td>D1</td><td>Active bonnet deployed</td><td></td></tr>
                         <tr><td>D3</td><td>None of rear passenger seat belts fastened</td><td></td></tr>
                         <tr><td>D7</td><td>Place automatic gearbox in position "P"</td><td></td></tr>
                         <tr><td>D8</td><td>Risk of ice</td><td></td></tr>
@@ -1659,8 +1690,14 @@
                         <tr><td>E3</td><td>Remote control battery flat</td><td></td></tr>
                         <tr><td>E4</td><td>Check and re-initialise tyre pressure</td><td></td></tr>
                         <tr><td>E8</td><td>Tyre pressure(s) too low</td><td></td></tr>
+                        <tr><td>EA</td><td>Hands-free starting system faulty</td><td></td></tr>
+                        <tr><td>EB</td><td>Starting phase has failed (consult handbook)</td><td></td></tr>
+                        <tr><td>EC</td><td>Prolonged starting in progress</td><td></td></tr>
+                        <tr><td>ED</td><td>Starting impossible: unlock the steering</td><td></td></tr>
+                        <tr><td>EF</td><td>Remote control detected</td><td></td></tr>
                         <tr><td>F0</td><td>Diagnosis in progress...</td><td></td></tr>
                         <tr><td>F1</td><td>Diagnosis completed</td><td></td></tr>
+                        <tr><td>F2-F6</td><td><em>Message without text</em></td><td></td></tr>
                         <tr><td>F7</td><td>Rear LH passenger seatbelt unfastened</td><td></td></tr>
                         <tr><td>F8</td><td>Rear center passenger seatbelt unfastened</td><td></td></tr>
                         <tr><td>F9</td><td>Rear RH passenger seatbelt unfastened</td><td></td></tr>
@@ -2126,9 +2163,14 @@
                 <div class="bits">0</div>
                 <div class="bits">
                     L
-                    <div class="info offset-2">Menu</div>
+                    <div class="info offset-3">Menu</div>
                 </div>
-                <div class="bits">00000</div>
+                <div class="bits">0</div>
+                <div class="bits">
+                    L
+                    <div class="info offset-2">Tel</div>
+                </div>
+                <div class="bits">000</div>
                 <div class="bits">
                     J
                     <div class="info offset-1">Clim</div>
