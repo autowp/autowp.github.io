@@ -158,12 +158,12 @@
                         <td class="text-warning">59%</td>
                     </tr>
                     <tr>
-                        <td>0E2</td>
+                        <td><a href="#0E2">0E2</a></td>
                         <td>8</td>
                         <td>00 00 00 00 33 33 03 33</td>
                         <td>1000</td>
-                        <td></td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
+                        <td>Current Disk</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -356,12 +356,12 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>162</td>
+                        <td><a href="#162">162</a></td>
                         <td>7</td>
                         <td>20 01 06 05 00 10 00</td>
                         <td>100</td>
-                        <td></td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
+                        <td>Current disk</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -437,12 +437,12 @@
                         <td class="text-danger">26%</td>
                     </tr>
                     <tr>
-                        <td>1A2</td>
+                        <td><a href="#1A2">1A2</a></td>
                         <td>5</td>
                         <td>01 58 00 00 00</td>
                         <td>500</td>
-                        <td></td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
+                        <td>Tracks count</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -527,11 +527,11 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>1E2</td>
+                        <td><a href="#1E2">1E2</a></td>
                         <td>7</td>
                         <td>01 05 00 00 00 00 00</td>
                         <td>500</td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -972,7 +972,7 @@
                         <td>8</td>
                         <td>09 00 00 00 00 00 00 00</td>
                         <td>1000</td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1089,7 +1089,7 @@
                         <td>8</td>
                         <td>31 07 01 05 02 04 20 09</td>
                         <td>not periodic</td>
-                        <td></td>
+                        <td><span class="label label-primary">CD Changer</span></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1218,7 +1218,7 @@
                     <div class="bits">10000</div>
                 </div>
             </div>
-        
+            
             <div class="message" id="0E1">
                 <div class="source">Source: <span class="label label-primary">Parktronic</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
@@ -1383,6 +1383,38 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+            
+            <div class="message" id="0E2">
+                <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
+                <div class="id">0E2</div>
+                <div class="description">
+                    Current disk number
+                </div>
+                <div class="structure clearfix margin-2">
+                    <div class="bits">00000000 00000000 00000000&nbsp;</div>
+                    <div class="bits">
+                        DDDD
+                        <div class="info offset-2">
+                            Current disk number
+                        </div>
+                    </div>
+                    <div class="bits">0000&nbsp;</div>
+                    <div class="bits">
+                        00000000
+                        <div class="info offset-1">
+                            ? 00110011 sometimes
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        00000011
+                        <div class="info">
+                            ? 00110011 sometimes
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;00110011 00110011</div>
                 </div>
             </div>
         
@@ -1574,8 +1606,8 @@
                     <div class="bits">
                         X
                         <div class="info offset-7">
-                            1 & !playing & intro mode - FastForward<br />
-                            0 & !playing & intro mode - FastBackward<br />
+                            1 &amp; !playing & intro mode - FastForward<br />
+                            0 &amp; !playing & intro mode - FastBackward<br />
                             1 in other time
                         </div>
                     </div>
@@ -1611,6 +1643,36 @@
                         TTTTTTTT
                         <div class="info">Go to track N. 0x00 - do nothing</div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="message" id="162">
+                <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
+                <div class="description">
+                    <p>Current disk</p>
+                </div>
+                <div class="id">162</div>
+                <div class="structure clearfix margin-3">
+                    <div class="bits">
+                        E
+                        <div class="info offset-3">0 when radio is off</div>
+                    </div>
+                    <div class="bits">0100000&nbsp;</div>
+                    <div class="bits">
+                        L
+                        <div class="info offset-2">1 when disk changed (displays as "loading")</div>
+                    </div>
+                    <div class="bits">00000</div>
+                    <div class="bits">
+                        E
+                        <div class="info offset-1">0 when radio is off</div>
+                    </div>
+                    <div class="bits">1 00000110 0000</div>
+                    <div class="bits">
+                        DDDD
+                        <div class="info">Current disk</div>
+                    </div>
+                    <div class="bits">&nbsp;00000000 00010000 00000000</div>
                 </div>
             </div>
             
@@ -1806,6 +1868,23 @@
                 </table>
                 </div>
             </div>
+            
+            <div class="message" id="1A2">
+                <div class="source">Source: <span class="label label-primary">CD changer</span></div>
+                <div class="description">
+                    <p>Current disk tracks count</p>
+                </div>
+                <div class="id">1A2</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        CCCCCCCC
+                        <div class="info">
+                            Tracks count
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;01011000 00000000 00000000 00000000</div>
+                </div>
+            </div>
         
             <div class="message" id="1A5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
@@ -1890,6 +1969,48 @@
                         <div class="info">Activate radio text</div>
                     </div>
                     <div class="bits">00000</div>
+                </div>
+            </div>
+            
+            <div class="message" id="1E2">
+                <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
+                <div class="id">1E2</div>
+                <div class="structure clearfix margin-6">
+                    <div class="bits">
+                        TTTTTTTT
+                        <div class="info offset-6">Current track number</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        00000101 00000000
+                        <div class="info offset-5">
+                            FF FF while switch track
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        MMMMMMMM
+                        <div class="info offset-3">
+                            Current track minute<br />
+                            FF while switch track
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;0</div>
+                    <div class="bits">
+                        SSSSSSS
+                        <div class="info offset-1">
+                            Current track second<br />
+                            7F while switch track
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        00000000
+                        <div class="info">
+                            80 while switch track
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;00000000</div>
                 </div>
             </div>
 
