@@ -783,9 +783,9 @@
                         <td>3</td>
                         <td>56 46 33</td>
                         <td>1000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><span class="label label-primary">BSI</span></td>
+                        <td>First 3 letters of VIN</td>
+                        <td class="text-success">100%</td>
                     </tr>
                     <tr>
                         <td>355</td>
@@ -837,9 +837,9 @@
                         <td>6</td>
                         <td>36 4A 58 46 56 4A</td>
                         <td>1000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><span class="label label-primary">BSI</span></td>
+                        <td>4-9 letters of VIN</td>
+                        <td class="text-success">100%</td>
                     </tr>
                     <tr>
                         <td><a href="#3E5">3E5</a></td>
@@ -2365,6 +2365,22 @@
                     <div class="info">ASCII coded last 8 VIN digits</div>
                 </div>
             </div>
+            
+            <div class="message" id="336">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: </div>
+                <div class="description">
+                    <p>First 3 letters of VIN</p>
+                </div>
+                
+                <div class="id">336</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        VVVVVVVV VVVVVVVV VVVVVVVV
+                        <div class="info">ASCII coded first 3 letters of VIN</div>
+                    </div>
+                </div>
+            </div>
         
             <div class="message margin-4 clearfix" id="3A5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
@@ -2396,6 +2412,22 @@
                 <div class="bits">
                     ssssssss
                     <div class="info">Current seconds, 7F is "--"</div>
+                </div>
+            </div>
+            
+            <div class="message" id="3B6">
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="dest">Dest: </div>
+                <div class="description">
+                    <p>4-9 letters of VIN</p>
+                </div>
+                
+                <div class="id">3B6</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV
+                        <div class="info">ASCII coded 4-9 letters of VIN</div>
+                    </div>
                 </div>
             </div>
         
