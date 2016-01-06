@@ -869,6 +869,15 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>49D</td>
+                        <td>8</td>
+                        <td>58 FB C6 80 FF FF FF FF</td>
+                        <td>not periodic</td>
+                        <td><span class="label label-primary">Parktronic</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>4A0</td>
                         <td>8</td>
                         <td>58 F9 07 80 FF FF FF FF</td>
@@ -909,7 +918,7 @@
                         <td>8</td>
                         <td>01 00 00 00 00 00 00 00</td>
                         <td>1000</td>
-                        <td></td>
+                        <td><span class="label label-primary">Parktronic</span></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1224,17 +1233,24 @@
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
                 <div class="id">0E1</div>
 
-                <div class="structure clearfix margin-10">
-                    <div class="bits">XXXX</div>
-                    <div class="bits">0000&nbsp;</div>
+                <div class="structure clearfix margin-13">
+                    <div class="bits">
+                        XXXXXXXX
+                        <div class="info offset-13">
+                            00 - when no sensors, ignition off<br />
+                            D8 - when no sensors, 1 second after ignition on<br />
+                            24 - when no sensors, ignition on
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
                     <div class="bits">
                         JJJJ
-                        <div class="info offset-10">0000 or 1111 - disable or enable sound</div>
+                        <div class="info offset-12">0000 or 1111 - disable or enable sound</div>
                     </div>
                     <div class="bits">0000 00</div>
                     <div class="bits">
                         HHHHHH 
-                        <div class="info offset-7">
+                        <div class="info offset-9">
                             "beep" period<br /> 
                             000000 - continuously beep<br /> 
                             111111 - unlimited period (silence)
@@ -1243,35 +1259,42 @@
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         III
-                        <div class="info offset-6">rear left</div>
+                        <div class="info offset-8">rear left</div>
                     </div>
                     <div class="bits">
                         KKKKK 
-                        <div class="info offset-5">rear center</div>
+                        <div class="info offset-7">rear center</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         LLL
-                        <div class="info offset-4">rear right</div>
+                        <div class="info offset-6">rear right</div>
                     </div>
                     <div class="bits">
                         MMMMM 
-                        <div class="info offset-3">front left</div>
+                        <div class="info offset-5">front left</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         QQQ
-                        <div class="info offset-2">front center</div>
+                        <div class="info offset-4">front center</div>
                     </div>
                     <div class="bits">
                         RRR
-                        <div class="info offset-1">front right</div>
+                        <div class="info offset-3">front right</div>
                     </div>
                     <div class="bits">
                         P
-                        <div class="info">show parktronic window</div>
+                        <div class="info offset-2">show parktronic window</div>
                     </div>
-                    <div class="bits">0 00000000</div>
+                    <div class="bits">0&nbsp;</div>
+                    <div class="bits">
+                        XXXXXXXX
+                        <div class="info">
+                            02 - when no sensors, ignition off<br />
+                            C2 - when no sensors, ignition on
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="row">
