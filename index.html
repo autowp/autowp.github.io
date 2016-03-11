@@ -681,14 +681,14 @@
                         <td>RDS</td>
                         <td class="text-warning">40%</td>
                     </tr>
-					<tr>
+                    <tr>
                         <td><a href="#276">276</a></td>
                         <td>7</td>
                         <td>8F 0C 09 08 05 27 10</td>
                         <td>1000</td>
-                        <td><span class="label label-primary">BSI</span></td>
+                        <td><span class="label label-warning">possible BSI</span></td>
                         <td>Date and Time</td>
-                        <td class="text-warning">??%</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>28C</td>
@@ -2390,10 +2390,11 @@
                 </table>
             </div>
         
-			<div class="message margin-7 clearfix" id="276">
-                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+            <div class="message margin-7 clearfix" id="276">
+                <div class="source">Source: <span class="label label-warning">possible BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
+                    <span class="label label-primary">C4 2010+</span>
                     <p>Date and time</p>
                 </div>
                 <div class="id">276</div>
@@ -2405,34 +2406,33 @@
                         1 - 24h
                     </div>
                 </div>
-				<div class="bits">
+                <div class="bits">
                     YYYYYYY&nbsp;
                     <div class="info offset-6">Year 0-125 (2000-2125)</div>
                 </div>
-				<div class="bits">0000</div>
-				<div class="bits">
+                <div class="bits">0000</div>
+                <div class="bits">
                     MMMM&nbsp;
                     <div class="info offset-5">Month(1-12)</div>
                 </div>
-				<div class="bits">000</div>
-				<div class="bits">
+                <div class="bits">000</div>
+                <div class="bits">
                     DDDDD&nbsp;
                     <div class="info offset-4">Day (1-31)</div>
                 </div>
-				<div class="bits">000</div>
-				<div class="bits">
+                <div class="bits">000</div>
+                <div class="bits">
                     HHHHH&nbsp;
                     <div class="info offset-3">Hour (0-23)</div>
                 </div>
-				<div class="bits">00</div>
-				<div class="bits">
+                <div class="bits">00</div>
+                <div class="bits">
                     ZZZZZZ&nbsp;
                     <div class="info offset-2">Minutes (0-59)</div>
                 </div>
-				<div class="bits">00011011 00010000</div>
-				
+                <div class="bits">00011011 00010000</div>
             </div>
-			
+            
             <div class="message clearfix" id="2B6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Radio</span></div>
