@@ -2333,22 +2333,36 @@
                     <p>Radio frequency</p>
                 </div>
                 <div class="id">225</div>
-                <div class="structure clearfix margin-3">
+                <div class="structure clearfix margin-8">
                     <div class="bits">
                         00000
                     </div>
                     <div class="bits">
-                        SSS
-                        <div class="info offset-1">
-                            Station memory number<br />
+                        SSS&nbsp;
+                        <div class="info offset-10">
+                            Number of waves in the memory<br />
                             0 - not in memory<br />
                             1-6 - mem1-mem6
                         </div>
                     </div>
-                    <div class="bits">&nbsp;0010</div>
+					<div class="bits">
+                        XXX
+                        <div class="info offset-1">
+                            Radio band<br />
+                            0 - ---<br>
+                            1 - FM1<br>
+							2 - FM2<br>
+							3 - DAB<br>
+							4 - ---<br>
+							5 - AM MediumWave<br>
+							6 - AM LongWawe<br>
+							7 - ---<br>
+                        </div>
+                    </div>
+                    <div class="bits">0</div>
                     <div class="bits">
                         FFFF FFFFFFFF&nbsp;
-                        <div class="info">Radio frequency. X*0.05+50</div>
+                        <div class="info">Radio wave. X*0.05+50</div>
                     </div>
                     <div class="bits">00000000 00000000 00000000</div>
                 </div>
