@@ -78,10 +78,10 @@
         <div class="container">
             <div class="jumbotron">
                 <h1>PSA CAN bus</h1>
-                <p>All data ralated to Peugeot 407 '2006 and Citroën C4 '2012</p>
+                <p>All data ralated to Peugeot 407 '2006, Citroën C4 '2012 (B7), Citroën C4 '2008 (B3/B5)</p>
                 <a href="https://github.com/autowp/autowp.github.io" class="btn btn-primary">View on github, contribute</a>
             </div>
-            
+
             <table class="table table-hover">
                 <caption>Table of contents</caption>
                 <thead>
@@ -121,6 +121,15 @@
                         <td></td>
                         <td></td>
                         <td>ISO 15765-2 Flow control frame for 0A4</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>0A2</td>
+                        <td>5</td>
+                        <td>00 00 00 00 00</td>
+                        <td>100</td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -172,7 +181,16 @@
                         <td>0E6</td>
                         <td>6</td>
                         <td>00 00 00 00 00 95</td>
-                        <td>100</td>
+                        <td>100 or 200</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>0ED</td>
+                        <td>2</td>
+                        <td>00 00</td>
+                        <td>500</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -199,7 +217,7 @@
                         <td>10B</td>
                         <td>6</td>
                         <td>7F FF FF 07 69 00</td>
-                        <td>100</td>
+                        <td>100 or 200</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -307,7 +325,7 @@
                         <td>134</td>
                         <td>7</td>
                         <td>00 03 FA FA 00 09 00</td>
-                        <td>100</td>
+                        <td>100 or 200</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -487,7 +505,7 @@
                         <td>1CC</td>
                         <td>2</td>
                         <td>00 C0</td>
-                        <td>100</td>
+                        <td>100 or 200</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -592,6 +610,15 @@
                         <td class="text-warning">58%</td>
                     </tr>
                     <tr>
+                        <td>220</td>
+                        <td>2</td>
+                        <td>00 00</td>
+                        <td>500</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td><a href="#221">221</a></td>
                         <td>7</td>
                         <td>00 FF FF 01 72 FF FF</td>
@@ -661,7 +688,7 @@
                         <td>257</td>
                         <td>6</td>
                         <td>0C E5 F5 F3 1A 0A</td>
-                        <td>not periodic</td>
+                        <td>not periodic (30sec)</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -772,6 +799,24 @@
                         <td>2E1</td>
                         <td>3</td>
                         <td>DF 76 00</td>
+                        <td>1000</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2E1</td>
+                        <td>5</td>
+                        <td>1D 74 40 1C 00</td>
+                        <td>1000</td>
+                        <td><span class="label label-primary">C4 2008</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2E5</td>
+                        <td>4</td>
+                        <td>00 00 00 00</td>
                         <td>1000</td>
                         <td></td>
                         <td></td>
@@ -889,7 +934,7 @@
                         <td>412</td>
                         <td>2</td>
                         <td>00 00</td>
-                        <td>not periodic</td>
+                        <td>not periodic (20sec)</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -1139,8 +1184,8 @@
                     </tr>
                 </tbody>
             </table>
-        
-        
+
+
             <div class="message" id="036">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
@@ -1148,8 +1193,8 @@
                     <p>BSI Ignition, Dashboard lightning</p>
                 </div>
                 <div class="id">036</div>
-                
-                
+
+
                 <div class="structure clearfix margin-2">
                     <div class="bits">00001110 00000000 00000000 00</div>
                         <div class="bits">
@@ -1163,7 +1208,7 @@
                         <div class="bits">00000001 00000000 00000000 10100000</div>
                 </div>
             </div>
-        
+
             <div class="message" id="0A4">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -1191,7 +1236,7 @@
                     <div class="bits">]</div>
                 </div>
             </div>
-            
+
             <div class="message" id="0B6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: </div>
@@ -1253,7 +1298,7 @@
                     <div class="bits">10000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="0E1">
                 <div class="source">Source: <span class="label label-primary">Parktronic</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
@@ -1275,10 +1320,10 @@
                     </div>
                     <div class="bits">0000 00</div>
                     <div class="bits">
-                        HHHHHH 
+                        HHHHHH
                         <div class="info offset-9">
-                            "beep" period<br /> 
-                            000000 - continuously beep<br /> 
+                            "beep" period<br />
+                            000000 - continuously beep<br />
                             111111 - unlimited period (silence)
                         </div>
                     </div>
@@ -1288,7 +1333,7 @@
                         <div class="info offset-8">rear left</div>
                     </div>
                     <div class="bits">
-                        KKKKK 
+                        KKKKK
                         <div class="info offset-7">rear center</div>
                     </div>
                     <div class="bits">&nbsp;</div>
@@ -1297,7 +1342,7 @@
                         <div class="info offset-6">rear right</div>
                     </div>
                     <div class="bits">
-                        MMMMM 
+                        MMMMM
                         <div class="info offset-5">front left</div>
                     </div>
                     <div class="bits">&nbsp;</div>
@@ -1322,7 +1367,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <table class="table table-condensed" style="width: auto;">
@@ -1434,7 +1479,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="0E2">
                 <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
                 <div class="id">0E2</div>
@@ -1466,7 +1511,7 @@
                     <div class="bits">&nbsp;00110011 00110011</div>
                 </div>
             </div>
-        
+
             <div class="message" id="0F6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Dashboard</span></div>
@@ -1505,7 +1550,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="message" id="125">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -1568,7 +1613,7 @@
                     </div>
                     <div class="bits">] x0-4]</div>
                 </div>
-                
+
                 <div class="id">125</div>
                 <div class="structure clearfix">
                     <div class="bits">
@@ -1577,7 +1622,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="128">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: </div>
@@ -1628,7 +1673,7 @@
                         right indicator on
                         </div>
                     </div>
-                    <div class="bits">A 
+                    <div class="bits">A
                         <div class="info">
                         left indicator on
                         </div>
@@ -1636,7 +1681,7 @@
                     <div class="bits">0 10000000 10100000 00000001</div>
                 </div>
             </div>
-            
+
             <div class="message" id="131">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="description">
@@ -1698,7 +1743,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="162">
                 <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
                 <div class="description">
@@ -1743,7 +1788,7 @@
                     <div class="bits">&nbsp;00000000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="165">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="description">
@@ -1781,7 +1826,7 @@
                     <div class="bits">0000 00000000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="167">
                 <div class="source">Source: <span class="label label-primary">Display</span></div>
                 <div class="dest">Dest: </div>
@@ -1802,7 +1847,7 @@
                     <div class="bits">00110 00010111 01110000 01111111 11111111 00000000 00000000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="1A0">
                 <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
                 <div class="dest">Dest: </div>
@@ -1829,7 +1874,7 @@
                     <div class="bits">0000000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="1A1">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -1856,11 +1901,11 @@
                         Z
                         <div class="info">1 when "show"</div>
                     </div>
-                    <div class="bits"> 
+                    <div class="bits">
                         0000000 00000000 00000000 00000000 00000000 00000000
                     </div>
                 </div>
-                
+
                 <div class="description">
                     <table class="table table-condensed" style="width: auto;">
                     <caption>Messages</caption>
@@ -1936,7 +1981,7 @@
                 </table>
                 </div>
             </div>
-            
+
             <div class="message" id="1A2">
                 <div class="source">Source: <span class="label label-primary">CD changer</span></div>
                 <div class="description">
@@ -1953,7 +1998,7 @@
                     <div class="bits">&nbsp;01011000 00000000 00000000 00000000</div>
                 </div>
             </div>
-        
+
             <div class="message" id="1A5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -1976,7 +2021,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="1E0">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -2039,7 +2084,7 @@
                     <div class="bits">00000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="1E2">
                 <div class="source">Source: <span class="label label-primary">CD Changer</span></div>
                 <div class="id">1E2</div>
@@ -2159,7 +2204,7 @@
                         <div class="info">value of musical ambiance</div>
                     </div>
                 </div>
-                
+
                 <div class="description">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -2210,7 +2255,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="1ED">
                 <div class="source">Source: <span class="label label-primary">Display</span></div>
                 <div class="dest">Dest: </div>
@@ -2229,7 +2274,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="message" id="21F">
                 <div class="source">Source: </div>
                 <div class="dest">Dest: <span class="label label-success">Radio</span></div>
@@ -2266,20 +2311,20 @@
                     </div>
                     <div class="bits">0&nbsp;</div>
                     <div class="bits">
-                        RRRRRRRR 
+                        RRRRRRRR
                         <div class="info">Scroll value. Continuously values.</div>
                     </div>
                     <div class="bits">&nbsp;00000000</div>
                 </div>
             </div>
-            
+
             <div class="message" id="221">
                 <div class="source">Source: </div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
                     <p>Trip computer info</p>
                 </div>
-                
+
                 <div class="id">221</div>
                 <div class="structure clearfix margin-12">
                     <div class="bits">
@@ -2406,7 +2451,7 @@
                     </div>
                     <div class="bits">&nbsp;00000000</div>
                 </div>
-                
+
                 <table class="table table-condensed" style="width: auto;">
                     <caption>PTY menu items</caption>
                     <thead>
@@ -2446,7 +2491,7 @@
                     </tbody>
                 </table>
             </div>
-        
+
             <div class="message margin-7 clearfix" id="276">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -2489,7 +2534,7 @@
                 </div>
                 <div class="bits">00011011 00010000</div>
             </div>
-            
+
             <div class="message clearfix" id="2B6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Radio</span></div>
@@ -2499,14 +2544,14 @@
                     <div class="info">ASCII coded last 8 VIN digits</div>
                 </div>
             </div>
-            
+
             <div class="message" id="336">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: </div>
                 <div class="description">
                     <p>First 3 letters of VIN</p>
                 </div>
-                
+
                 <div class="id">336</div>
                 <div class="structure clearfix">
                     <div class="bits">
@@ -2515,7 +2560,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="message margin-4 clearfix" id="3A5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -2548,14 +2593,14 @@
                     <div class="info">Current seconds, 7F is "--"</div>
                 </div>
             </div>
-            
+
             <div class="message" id="3B6">
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: </div>
                 <div class="description">
                     <p>4-9 letters of VIN</p>
                 </div>
-                
+
                 <div class="id">3B6</div>
                 <div class="structure clearfix">
                     <div class="bits">
@@ -2564,7 +2609,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="message margin-3 clearfix" id="3E5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -2636,7 +2681,7 @@
                     <div class="info">Left</div>
                 </div>
             </div>
-            
+
             <div class="message margin-2 clearfix" id="3F6">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
@@ -2659,11 +2704,11 @@
                 </div>
                 <div class="bits"> 1000000 00000001</div>
             </div>
-            
+
             <div class="message margin-5 clearfix" id="51D">
                 <div class="source">Source: <span class="label label-primary">Parktronic</span></div>
                 <div class="description">
-                    
+
                 </div>
                 <div class="id">51D</div>
                 <div class="bits">
