@@ -1199,9 +1199,12 @@
                     <div class="bits">00001110 00000000 00000000 00</div>
                         <div class="bits">
                             L
-                            <div class="info offset-2">Dashboard lightning enabled</div>
+                            <div class="info offset-3">Dashboard lightning enabled</div>
                         </div>
-                        <div class="bits">0</div>
+                        <div class="bits">
+                            I
+                            <div class="info offset-2">Dark mode enabled</div>
+                        </div>
                         <div class="bits">BBBB&nbsp;
                             <div class="info offset-1">Brightness for dashboard lightning</div>
                         </div>
@@ -1795,15 +1798,20 @@
                     <p>Radio status</p>
                 </div>
                 <div class="id">165</div>
-                <div class="structure clearfix margin-8">
+                <div class="structure clearfix margin-12">
                     <div class="bits">
                         P
-                        <div class="info offset-8">Radio enabled flag</div>
+                        <div class="info offset-12">Radio enabled flag</div>
                     </div>
-                    <div class="bits">1001100 1</div>
+                    <div class="bits">1</div>
+                    <div class="bits">
+                        M
+                        <div class="info offset-11">Silence (sound muted)</div>
+                    </div>
+                    <div class="bits">01100 1</div>
                     <div class="bits">
                         DD
-                        <div class="info offset-5">
+                        <div class="info offset-8">
                             00 - During initialization<br />
                             01 - CD disk unavailable<br />
                             10 - CD disk available
@@ -1811,13 +1819,16 @@
                     </div>
                     <div class="bits">
                         C
-                        <div class="info offset-4">CD changer available</div>
+                        <div class="info offset-7">CD changer available</div>
                     </div>
                     <div class="bits">0000 0</div>
                     <div class="bits">
                         SSS
                         <div class="info">
+                            111 - Bluetooth<br />
+                            110 - USB<br />
                             101 - AUX 2<br />
+                            100 - AUX 1<br />
                             011 - CD Changer<br />
                             001 - Tuner<br />
                             010 - CD
