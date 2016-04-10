@@ -929,7 +929,10 @@
                         <td>4</td>
                         <td>00 00 00 00</td>
                         <td>1000</td>
-                        <td><span class="label label-info">C4 (B3/B5)</span></td>
+                        <td>
+                            <span class="label label-info">C4 (B3/B5)</span>
+                            <span class="label label-primary">Radio</span>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1260,7 +1263,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>5E0</td>
+                        <td><a href="#5E0">5E0</a></td>
                         <td>8</td>
                         <td>20 01 02 06 12 1E 20 11</td>
                         <td>not periodic</td>
@@ -1268,11 +1271,11 @@
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Radio</span>
                         </td>
-                        <td></td>
+                        <td>Info about radio HW/SW</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>5E5</td>
+                        <td><a href="#3F6">5E5</a></td>
                         <td>8</td>
                         <td>25 1D 04 05 04 03 20 11</td>
                         <td>not periodic</td>
@@ -1280,7 +1283,7 @@
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Display</span>
                         </td>
-                        <td></td>
+                        <td>Info about display HW/SW</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -2916,6 +2919,38 @@
                         21 00 00 00 01 00 00 00 - with 2 sensors<br />
                     </div>
                 </div>
+            </div>
+
+            <div class="message margin-1 clearfix" id="5E0">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="description">
+                    Info about radio HW/SW
+                </div>
+                <div class="id">5E0</div>
+                <div class="bits">20 01 02 06&nbsp;</div>
+                <div class="bits">
+                    VV vv
+                    <div class="info">
+                        Firmware version VV.vv
+                    </div>
+                </div>
+                <div class="bits">&nbsp;20 11</div>
+            </div>
+
+            <div class="message margin-1 clearfix" id="5E5">
+                <div class="source">Source: <span class="label label-primary">Display</span></div>
+                <div class="description">
+                    Info about display HW/SW
+                </div>
+                <div class="id">5E5</div>
+                <div class="bits">25 1D 04 05&nbsp;</div>
+                <div class="bits">
+                    VV vv
+                    <div class="info">
+                        Firmware version VV.vv
+                    </div>
+                </div>
+                <div class="bits">&nbsp;20 11</div>
             </div>
         </div>
     </body>
