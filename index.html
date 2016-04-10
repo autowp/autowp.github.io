@@ -55,6 +55,9 @@
 .offset-11 { padding-top: 220px; }
 .offset-12 { padding-top: 240px; }
 .offset-13 { padding-top: 260px; }
+.offset-14 { padding-top: 280px; }
+.offset-15 { padding-top: 300px; }
+.offset-16 { padding-top: 320px; }
 
 .margin-1 { padding-bottom: 40px; }
 .margin-2 { padding-bottom: 60px; }
@@ -71,6 +74,7 @@
 .margin-13 { padding-bottom: 280px; }
 .margin-14 { padding-bottom: 300px; }
 .margin-15 { padding-bottom: 320px; }
+.margin-16 { padding-bottom: 340px; }
 
         </style>
     </head>
@@ -81,7 +85,7 @@
                 <p>All data ralated to Peugeot 407 '2006, Citroën C4 '2012 (B7), Citroën C4 '2008 (B3/B5)</p>
                 <a href="https://github.com/autowp/autowp.github.io" class="btn btn-primary">View on github, contribute</a>
             </div>
-            
+
             <div class="well">
                 <h3>Legend</h3>
                 <ul>
@@ -723,7 +727,7 @@
                         <td class="text-success">91%</td>
                     </tr>
                     <tr>
-                        <td>225</td>
+                        <td><a href="#225_5">225</a></td>
                         <td>5</td>
                         <td>20 30 10 04 7C</td>
                         <td>500</td>
@@ -735,7 +739,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><a href="#225">225</a></td>
+                        <td><a href="#225_6">225</a></td>
                         <td>6</td>
                         <td>01 20 10 00 00 00</td>
                         <td>500</td>
@@ -2568,7 +2572,68 @@
                     </div>
                 </div>
             </div>
-            <div class="message" id="225">
+            <div class="message" id="225_5">
+                <div class="source">Source: <span class="label label-success">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <span class="label label-info">C4 (B3/B5)</span>
+                    <p>Radio frequency</p>
+                </div>
+                <div class="id">225</div>
+                <div class="structure clearfix margin-12">
+                    <div class="bits">00</div>
+                    <div class="bits">
+                        D
+                        <div class="info offset-15">
+                            Direction of frequency tuning (0 - down, 1 - up)
+                        </div>
+                    </div>
+                    <div class="bits">1</div>
+                    <div class="bits">
+                        A
+                        <div class="info offset-14">
+                            Autoscan active
+                        </div>
+                    </div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        T
+                        <div class="info offset-13">
+                            Frequency tuning active
+                        </div>
+                    </div>
+                    <div class="bits">0&nbsp;0</div>
+                    <div class="bits">
+                        SSS
+                        <div class="info offset-10">
+                            Position of band in memory<br />
+                            0 - not in memory<br />
+                            1-6 - mem1-mem6
+                        </div>
+                    </div>
+                    <div class="bits">0000&nbsp;0</div>
+                    <div class="bits">
+                        XXX
+                        <div class="info offset-1">
+                            Radio band<br />
+                            0 - ---<br>
+                            1 - FM1<br>
+                            2 - FM2<br>
+                            3 - DAB<br>
+                            4 - FMAST<br>
+                            5 - AM MediumWave<br>
+                            6 - AM LongWawe<br>
+                            7 - ---<br>
+                        </div>
+                    </div>
+                    <div class="bits">0000&nbsp;0000</div>
+                    <div class="bits">
+                        FFFF FFFFFFFF
+                        <div class="info">Radio frequency. X*0.05+50</div>
+                    </div>
+                </div>
+            </div>
+            <div class="message" id="225_6">
                 <div class="source">Source: <span class="label label-success">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
