@@ -1001,7 +1001,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>365</td>
+                        <td><a href="#365">365</a></td>
                         <td>5</td>
                         <td>FF FF FF 00 00</td>
                         <td>500</td>
@@ -1009,7 +1009,7 @@
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Radio</span>
                         </td>
-                        <td></td>
+                        <td>CD disk info</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -2824,11 +2824,33 @@
                 </div>
             </div>
 
+            <div class="message" id="365">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: Display</div>
+                <div class="description">
+                    <p>CD disk info</p>
+                </div>
+
+                <div class="id">365</div>
+                <div class="structure clearfix">
+                    <div class="bits">
+                        NNNNNNNN
+                        <div class="info offset-1">Number of tracks on CD</div>
+                    </div>
+                    <div class="bits">&nbsp;11111111 11111111 0000000</div>
+                    <div class="bits">
+                        M
+                        <div class="info">1 - Mp3 CD, 0 - audio CD</div>
+                    </div>
+                    <div class="bits">&nbsp;0000000</div>
+                </div>
+            </div>
+
             <div class="message margin-4 clearfix" id="3A5">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
-                    <p>Current playing CD track info</p>
+                    <p>Current playing CD track info.</p>
                 </div>
                 <div class="id">3A5</div>
                 <div class="bits">
@@ -2855,6 +2877,7 @@
                     ssssssss
                     <div class="info">Current seconds, 7F is "--"</div>
                 </div>
+                <div class="bits">&nbsp;[00000000]</div>
             </div>
 
             <div class="message" id="3B6">
