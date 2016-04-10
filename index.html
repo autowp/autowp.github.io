@@ -2851,7 +2851,7 @@
                 </div>
             </div>
 
-            <div class="message" id="365">
+            <div class="message margin-3" id="365">
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
@@ -2862,9 +2862,19 @@
                 <div class="structure clearfix">
                     <div class="bits">
                         NNNNNNNN
-                        <div class="info offset-1">Number of tracks on CD</div>
+                        <div class="info offset-3">Number of tracks on CD, FF - no disk</div>
                     </div>
-                    <div class="bits">&nbsp;11111111 11111111 0000000</div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        MMMMMMMM
+                        <div class="info offset-2">Disk full time minutes, FF - no disk</div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        SSSSSSSS
+                        <div class="info offset-1">Disk full time seconds, FF - no disk</div>
+                    </div>
+                    <div class="bits">&nbsp;0000000</div>
                     <div class="bits">
                         M
                         <div class="info">1 - Mp3 CD, 0 - audio CD</div>
