@@ -732,6 +732,7 @@
                         <td>20 30 10 04 7C</td>
                         <td>500</td>
                         <td>
+                            <span class="label label-info">C4 (B3/B5)</span>
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Radio</span>
                         </td>
@@ -1006,6 +1007,7 @@
                         <td>FF FF FF 00 00</td>
                         <td>500</td>
                         <td>
+                            <span class="label label-info">C4 (B3/B5)</span>
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Radio</span>
                         </td>
@@ -1272,6 +1274,7 @@
                         <td>20 01 02 06 12 1E 20 11</td>
                         <td>not periodic</td>
                         <td>
+                            <span class="label label-info">C4 (B3/B5)</span>
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Radio</span>
                         </td>
@@ -1284,6 +1287,7 @@
                         <td>25 1D 04 05 04 03 20 11</td>
                         <td>not periodic</td>
                         <td>
+                            <span class="label label-info">C4 (B3/B5)</span>
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Display</span>
                         </td>
@@ -1357,33 +1361,36 @@
                     <p>BSI Ignition, Dashboard lightning</p>
                 </div>
                 <div class="id">036</div>
-
-
-                <div class="structure clearfix margin-4">
+                    <div class="structure clearfix margin-7">
                         <div class="bits">00001110 00000000&nbsp;</div>
                         <div class="bits">
                             E
-                            <div class="info offset-4">Economy mode enabled</div>
+                            <div class="info offset-7">Economy mode enabled</div>
                         </div>
-                        <div class="bits">
-                            0000000 00</div>
+                        <div class="bits">0000000 00</div>
                         <div class="bits">
                             L
-                            <div class="info offset-3">Dashboard lightning enabled</div>
+                            <div class="info offset-6">Dashboard lightning enabled</div>
                         </div>
                         <div class="bits">
                             I
-                            <div class="info offset-2">Disables dark mode when set</div>
+                            <div class="info offset-5">Disables dark mode when set</div>
                         </div>
-                        <div class="bits">BBBB
-                            <div class="info offset-1">Brightness for dashboard lightning</div>
+                        <div class="bits">
+                            BBBB
+                            <div class="info offset-4">Brightness for dashboard lightning</div>
                         </div>
                         <div class="bits">&nbsp;00000</div>
                         <div class="bits">
                             MMM
-                        <div class="info">Ignition mode. 001 - ignition on, 010 - ignition off, 011 - unknown (once per ignition)</div>
+                        <div class="info">
+                            Ignition mode.<br />
+                            001 - ignition on,<br />
+                            010 - ignition off,<br />
+                            011 - unknown (once per ignition)
                         </div>
-                        <div class="bits">&nbsp;00000000 00000000 10100000</div>
+                    </div>
+                    <div class="bits">&nbsp;00000000 00000000 10100000</div>
                 </div>
             </div>
 
@@ -3052,14 +3059,14 @@
                     Info about radio HW/SW
                 </div>
                 <div class="id">5E0</div>
-                <div class="bits">20 01 02 06&nbsp;</div>
+                <div class="bits">00100000 00000001 00000010 00000110&nbsp;</div>
                 <div class="bits">
-                    VV vv
+                    VVVVVVVV vvvvvvvv
                     <div class="info">
                         Firmware version VV.vv
                     </div>
                 </div>
-                <div class="bits">&nbsp;20 11</div>
+                <div class="bits">&nbsp;00100000 00010001</div>
             </div>
 
             <div class="message margin-1 clearfix" id="5E5">
@@ -3068,14 +3075,14 @@
                     Info about display HW/SW
                 </div>
                 <div class="id">5E5</div>
-                <div class="bits">25 1D 04 05&nbsp;</div>
+                <div class="bits">00100101 00011101 00000100 00000101&nbsp;</div>
                 <div class="bits">
-                    VV vv
+                    VVVVVVVV vvvvvvvv
                     <div class="info">
                         Firmware version VV.vv
                     </div>
                 </div>
-                <div class="bits">&nbsp;20 11</div>
+                <div class="bits">&nbsp;00100000 00010001</div>
             </div>
         </div>
     </body>
