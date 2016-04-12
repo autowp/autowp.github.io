@@ -274,6 +274,7 @@
                         <td>100</td>
                         <td>
                             <span class="label label-info">407</span>
+                            <span class="label label-primary">Climate</span>
                         </td>
                         <td></td>
                         <td></td>
@@ -509,7 +510,10 @@
                         <td>8</td>
                         <td>02 44 02 53 FF FF FF FF</td>
                         <td>200</td>
-                        <td><span class="label label-info">407</span></td>
+                        <td>
+                    	    <span class="label label-info">407</span>
+                            <span class="label label-primary">Climate</span>
+                    	</td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -598,12 +602,15 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>1D0</td>
+                        <td><a href="#1D0">1D0</a></td>
                         <td>7</td>
                         <td>00 00 05 00 00 0D 0D</td>
                         <td>500</td>
-                        <td><span class="label label-info">407</span></td>
-                        <td></td>
+                        <td>
+                            <span class="label label-info">407</span>
+                            <span class="label label-primary">Climate</span>
+                        </td>
+                        <td>Climate control information</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -1181,7 +1188,10 @@
                         <td>8</td>
                         <td>01 00 00 00 00 00 00 00</td>
                         <td>1000</td>
-                        <td><span class="label label-info">407</span></td>
+                        <td>
+                            <span class="label label-info">407</span>
+                            <span class="label label-primary">Climate</span>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -1374,7 +1384,7 @@
                         </div>
                         <div class="bits">
                             I
-                            <div class="info offset-5">Disables dark mode when set</div>
+                            <div class="info offset-5">Disables dark mode when set, turns off climate control display</div>
                         </div>
                         <div class="bits">
                             BBBB
@@ -2227,6 +2237,66 @@
                     <div class="bits">
                         VVVVV
                         <div class="info">sound volume from 0 to 30</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message" id="1D0">
+                <div class="source">Source: <span class="label label-primary">Climate</span></div>
+                <div class="dest">Dest: </div>
+                <div class="description">
+                    <p>Climate control information</p>
+                </div>
+                <div class="id">1D0</div>
+                <div class="structure clearfix margin-12">
+                    <div class="bits">00100010 00000000 00000</div>
+                    <div class="bits">
+                        FFF
+                        <div class="info offset-13">
+                            Fan speed (0-7)
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;0</div>
+                    <div class="bits">
+                        DDD
+                        <div class="info offset-6">
+                            Air direction:<br>
+                            011 - Front<br>
+                            100 - Up<br>
+                            110 - Up + Down<br>
+                            010 - Down<br>
+                            101 - Front + Down<br>
+                            001 - Up (when windshield blowing enabled)
+                        </div>
+                    </div>
+                    <div class="bits">0110 00</div>
+                    <div class="bits">
+                        A
+                        <div class="info offset-5">
+                            Air recycling enabled
+                        </div>
+                    </div>
+                    <div class="bits">
+                        W
+                        <div class="info offset-4">
+                            Windshield blowing enabled
+                        </div>
+                    </div>
+                    <div class="bits">0000 000</div>
+                    <div class="bits">
+                        LLLLL
+                        <div class="info offset-2">
+                            Temperature for left zone<br>
+                            0=LO, 2…5=15…18°, 6…16=18.5…23.5° (0.5° step), 17…20=24…27°, 22=HI
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;000</div>
+                    <div class="bits">
+                        RRRRR
+                        <div class="info">
+                            Temperature for right zone<br>
+                            0=LO, 2…5=15…18°, 6…16=18.5…23.5° (0.5° step), 17…20=24…27°, 22=HI
+                        </div>
                     </div>
                 </div>
             </div>
