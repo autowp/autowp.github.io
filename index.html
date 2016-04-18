@@ -191,7 +191,7 @@
                             <span class="label label-info">407</span>
                             <span class="label label-primary">Display</span>
                         </td>
-                        <td></td>
+                        <td>Display menu</td>
                         <td class="text-danger">11%</td>
                     </tr>
                     <tr>
@@ -1414,12 +1414,16 @@
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
-                    <p>Current track name</p>
+                    <p>Current track name, radiotext</p>
                     <p><span class="label label-danger">ISO 15765-2</span></p>
                 </div>
                 <div class="id">0A4</div>
                 <div class="structure clearfix margin-2">
-                    <div class="bits">00100000 00000000 010</div>
+                    <div class="bits">
+                        PPPP
+                        <div class="info offset-3">Page number. Radio text on page 1, current CD track name/author on page 2.</div>
+                    </div>
+                    <div class="bits">0000 00000000 010</div>
                     <div class="bits">
                         A
                         <div class="info offset-2">1 - message contains track author data</div>
@@ -1463,6 +1467,9 @@
             <div class="message" id="0DF">
                 <div class="source">Source: <span class="label label-primary">Radio or Display</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>Display menu</p>
+                </div>
                 <div class="id">0DF</div>
                 <div class="structure clearfix margin-7">
                     <div class="bits">
@@ -1756,15 +1763,16 @@
                 <div class="source">Source: <span class="label label-primary">Radio</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
                 <div class="description">
-                    <p>CD track list</p>
+                    <p>CD track list, radio list</p>
                     <p><span class="label label-danger">ISO 15765-2</span></p>
                 </div>
                 <div class="id">125</div>
-                <div class="structure clearfix margin-12">
+                <div class="structure clearfix margin-11">
                     <div class="bits">
-                        01110000&nbsp;
-                        <div class="info offset-12">Show track list menu</div>
+                        PPPP
+                        <div class="info offset-12">Page number. Radio bands on pages 1..5, cd tracklist on page 9. Empty packet with page 0 to close dialog</div>
                     </div>
+                    <div class="bits">0000&nbsp;</div>
                     <div class="bits">
                         TTTTTTTT
                         <div class="info offset-11">tracks count</div>
@@ -1813,14 +1821,6 @@
                         <div class="info">20 bytes of track name</div>
                     </div>
                     <div class="bits">] x0-4]</div>
-                </div>
-
-                <div class="id">125</div>
-                <div class="structure clearfix">
-                    <div class="bits">
-                        00000000
-                        <div class="info">Hide track list menu. (By press OK in list LIST, by ESC or by timeout)</div>
-                    </div>
                 </div>
             </div>
 
@@ -2367,7 +2367,7 @@
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         G
-                        <div class="info offset-2">REG mode activated</div>
+                        <div class="info offset-2">REG mode activated (not confirmed for C4(B5))</div>
                     </div>
                     <div class="bits">0000000&nbsp;</div>
                     <div class="bits">
@@ -2676,8 +2676,14 @@
                     <p>Radio frequency</p>
                 </div>
                 <div class="id">225</div>
-                <div class="structure clearfix margin-12">
-                    <div class="bits">00</div>
+                <div class="structure clearfix margin-13">
+                    <div class="bits">
+                        L
+                        <div class="info offset-16">
+                            Station list open
+                        </div>
+                    </div>
+                    <div class="bits">0</div>
                     <div class="bits">
                         D
                         <div class="info offset-15">
@@ -2691,20 +2697,32 @@
                             Autoscan active
                         </div>
                     </div>
-                    <div class="bits">0</div>
+                    <div class="bits">
+                        R
+                        <div class="info offset-13">
+                            RDS search active
+                        </div>
+                    </div>
                     <div class="bits">
                         T
-                        <div class="info offset-13">
+                        <div class="info offset-12">
                             Frequency tuning active
                         </div>
                     </div>
-                    <div class="bits">0&nbsp;0</div>
+                    <div class="bits">
+                        P
+                        <div class="info offset-11">
+                            PTY search active
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;0</div>
                     <div class="bits">
                         SSS
-                        <div class="info offset-10">
+                        <div class="info offset-7">
                             Position of band in memory<br />
                             0 - not in memory<br />
-                            1-6 - mem1-mem6
+                            1-6 - mem1-mem6<br />
+                            7 - mem--
                         </div>
                     </div>
                     <div class="bits">0000&nbsp;0</div>
@@ -2715,11 +2733,8 @@
                             0 - ---<br>
                             1 - FM1<br>
                             2 - FM2<br>
-                            3 - DAB<br>
                             4 - FMAST<br>
-                            5 - AM MediumWave<br>
-                            6 - AM LongWawe<br>
-                            7 - ---<br>
+                            5 - AM<br>
                         </div>
                     </div>
                     <div class="bits">0000&nbsp;0000</div>
@@ -2737,7 +2752,7 @@
                     <p>Radio frequency</p>
                 </div>
                 <div class="id">225</div>
-                <div class="structure clearfix margin-8">
+                <div class="structure clearfix margin-10">
                     <div class="bits">
                         00000
                     </div>
@@ -2779,36 +2794,56 @@
                     <p>RDS</p>
                 </div>
                 <div class="id">265</div>
-                <div class="structure clearfix margin-4">
+                <div class="structure clearfix margin-10">
                     <div class="bits">
                         S
-                        <div class="info offset-4">Activate RDS search</div>
+                        <div class="info offset-10">RDS activated</div>
                     </div>
-                    <div class="bits">00</div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        F
+                        <div class="info offset-9">RDS found</div>
+                    </div>
                     <div class="bits">
                         T
-                        <div class="info">TA</div>
+                        <div class="info offset-8">TA activated</div>
                     </div>
-                    <div class="bits">000</div>
+                    <div class="bits">0</div>
+                    <div class="bits">
+                        F
+                        <div class="info offset-7">TA found</div>
+                    </div>
                     <div class="bits">
                         R
-                        <div class="info offset-3">REG mode activated</div>
+                        <div class="info offset-6">Traffic info</div>
+                    </div>
+                    <div class="bits">
+                        R
+                        <div class="info offset-5">REG mode activated</div>
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
                         P
-                        <div class="info offset-2">PTY</div>
+                        <div class="info offset-4">PTY</div>
                     </div>
                     <div class="bits">
                         M
-                        <div class="info offset-1">PTY menu shown</div>
+                        <div class="info offset-3">PTY menu shown</div>
                     </div>
-                    <div class="bits">000000&nbsp;</div>
+                    <div class="bits">
+                        XX
+                        <div class="info offset-2">PTY info: 00=hide, 01=small in 3rd string, 10=big in 1st string</div>
+                    </div>
+                    <div class="bits">0000&nbsp;</div>
                     <div class="bits">
                         PPPPPPPP
-                        <div class="info">PTY menu current item</div>
+                        <div class="info offset-1">PTY menu selected item</div>
                     </div>
-                    <div class="bits">&nbsp;00000000</div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        CCCCCCCC
+                        <div class="info">Current station PTY</div>
+                    </div>
                 </div>
 
                 <table class="table table-condensed" style="width: auto;">
