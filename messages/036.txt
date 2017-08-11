@@ -1,0 +1,16 @@
+ID: 036
+Source: BSI
+Dest: Display Radio
+BSI Ignition, Dashboard lightning
+
+00001110 00000000 E0000000 00LIBBBB 00000MMM 00000000 00000000 10100000
+                  │          ││╶─┬╴      ╶┬╴
+                  │          ││  │        │
+                  │          ││  │        │╷ Ignition mode.
+                  │          ││  │        └┤ 001 - ignition on,
+                  │          ││  │         │ 010 - ignition off,
+                  │          ││  │         ╵ 011 - unknown (once per ignition)
+                  │          ││  └┤ Brightness for dashboard lightning
+                  │          │└┤ Disables dark mode when set, turns off climate control display 
+                  │          └┤ Dashboard lightning enabled 
+                  └┤ Economy mode enabled 
