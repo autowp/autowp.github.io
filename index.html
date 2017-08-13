@@ -1084,6 +1084,15 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td><a href="#30D">30D</a></td>
+                        <td>8</td>
+                        <td></td>
+                        <td>10</td>
+                        <td><span class="label label-info">C4</span></td>
+                        <td>Wheel rotation speed</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>315</td>
                         <td>5</td>
                         <td>00 00 00 6E 00</td>
@@ -3313,6 +3322,60 @@
                 <div class="bits">
                     VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV VVVVVVVV
                     <div class="info">ASCII coded last 8 VIN digits</div>
+                </div>
+            </div>
+
+            <div class="message" id="325">
+                <div class="source">Source: <span class="label label-primary">Radio</span></div>
+                <div class="dest">Dest: <span class="label label-success">Display</span></div>
+                <div class="description">
+                    <p>CD tray info</p>
+                </div>
+
+                <div class="id">325</div>
+                <div class="structure clearfix margin-1">
+                    <div class="bits">00000000&nbsp;</div>
+                    <div class="bits">
+                        I
+                        <div class="info offset-2">Disk inserting/ejecting now</div>
+                    </div>
+                    <div class="bits">00000</div>
+                    <div class="bits">
+                        R
+                        <div class="info offset-1">Disk ready for reading</div>
+                    </div>
+                    <div class="bits">
+                        P
+                        <div class="info">Disk present</div>
+                    </div>
+                    <div class="bits">&nbsp;00000000</div>
+                </div>
+            </div>
+            
+            <div class="message clearfix" id="30D">
+                <div class="source">Source: </div>
+                <div class="dest">Dest: </div>
+                <div class="id">30D</div>
+                <div class="structure clearfix margin-3">
+                    <div class="bits">
+                        FLFLFLFL FLFLFLFL
+                        <div class="info offset-3">Front-left</div>
+                    </div>
+                    <div class="bits">&#xa0;</div>
+                    <div class="bits">
+                        FRFRFRFR FRFRFRFR
+                        <div class="info offset-2">Front-right</div>
+                    </div>
+                    <div class="bits">&#xa0;</div>
+                    <div class="bits">
+                        RLRLRLRL RLRLRLRL
+                        <div class="info offset-1">Rear-left</div>
+                    </div> 
+                    <div class="bits">&#xa0;</div>
+                    <div class="bits">
+                        RRRRRRRR RRRRRRRR
+                        <div class="info">Rear-right</div>
+                    </div>
                 </div>
             </div>
 
