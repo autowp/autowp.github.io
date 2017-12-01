@@ -272,7 +272,7 @@
                         <td>0E3</td>
                         <td>0E4</td>
                         <td>0E5</td>
-                        <td>0E6</td>
+                        <td class="color-bsi">0E6</td>
                         <td>0E7</td>
                         <td>0E8</td>
                         <td>0E9</td>
@@ -1346,11 +1346,21 @@
                         <td>00 00 00 00 00 95</td>
                         <td>100 or 200</td>
                         <td>
-                            <span class="label label-info">C4 Sedan</span>
-                            <span class="label label-info">C4 (B3/B5)</span>
                             <span class="label label-info">407</span>
                         </td>
                         <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#0E6_2">0E6</a></td>
+                        <td>8</td>
+                        <td>00 70 EF 70 43 90 80 45</td>
+                        <td>100</td>
+                        <td>
+                            <span class="label label-info">C4 Sedan</span>
+                            <span class="label label-info">C4 (B3/B5)</span>
+                        </td>
+                        <td>Wheels rotation, voltage</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -3208,7 +3218,7 @@
 
             <div class="message" id="0E2">
                 <div class="network">Network: CAN-INFO</div>
-                <div class="source">Source: <span class="label label-info">Yatour</span></div>
+                <div class="source">Source: <span class="label label-primary">Yatour</span></div>
                 <div class="id">0E2</div>
                 <div class="description">
                     Current disk number
@@ -3236,6 +3246,39 @@
                         </div>
                     </div>
                     <div class="bits">&nbsp;00110011 00110011</div>
+                </div>
+            </div>
+            
+            <div class="message" id="0E6_2">
+                <div class="network">Network: CAN-INFO</div>
+                <div class="source">Source: <span class="label label-primary">BSI</span></div>
+                <div class="description">
+                    Wheels rotation, voltage
+                </div>
+                <div class="id">0E6 (C4(B7))</div>
+                <div class="structure clearfix margin-2">
+                    <div class="bits">00000000&nbsp;</div>
+                    <div class="bits">
+                        LLLLLLLL LLLLLLLL
+                        <div class="info offset-2">
+                            Left wheel rotation couter, unknown unit
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        RRRRRRRR RRRRRRRR
+                        <div class="info offset-1">
+                            Right wheel rotation couter, unknown unit
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;</div>
+                    <div class="bits">
+                        VVVVVVVV
+                        <div class="info">
+                            Voltage = (V + 144) / 20
+                        </div>
+                    </div>
+                    <div class="bits">&nbsp;10000000 01000101</div>
                 </div>
             </div>
 
@@ -4518,7 +4561,7 @@
                 <div class="network">Network: CAN-INFO</div>
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
-                <div class="id">261(C4(B7))</div>
+                <div class="id">261 (C4(B7))</div>
                 <div class="bits">
                     XXXXXXXX
                     <div class="info offset-4">Average speed, 0-250 km/h</div>
@@ -4686,7 +4729,7 @@
                 <div class="network">Network: CAN-INFO</div>
                 <div class="source">Source: <span class="label label-primary">BSI</span></div>
                 <div class="dest">Dest: <span class="label label-success">Display</span></div>
-                <div class="id">2A1(C4(B7))</div>
+                <div class="id">2A1 (C4(B7))</div>
                 <div class="bits">
                     XXXXXXXX
                     <div class="info offset-4">Average speed, 0-250 km/h</div>
