@@ -3040,10 +3040,10 @@
                 <div class="dest">Dest: <span class="label label-success">Display</span> <span class="label label-success">Radio</span></div>
                 <div class="id">0E1</div>
 
-                <div class="structure clearfix margin-15">
+                <div class="structure clearfix margin-18">
                     <div class="bits">
                         XXXXXXXX
-                        <div class="info offset-13">
+                        <div class="info offset-16">
                             00 - when no sensors, ignition off<br />
                             D8 - when no sensors, 1 second after ignition on<br />
                             24 - when no sensors, ignition on
@@ -3051,8 +3051,20 @@
                     </div>
                     <div class="bits">&nbsp;</div>
                     <div class="bits">
-                        JJJJ
-                        <div class="info offset-12">0000 or 1111 - disable or enable sound</div>
+                        R
+                        <div class="info offset-15">Right channels sound enabled</div>
+                    </div>
+                    <div class="bits">
+                        L
+                        <div class="info offset-14">Left channels sound enabled</div>
+                    </div>
+                    <div class="bits">
+                        F
+                        <div class="info offset-13">Rear (0) or front (1) channels</div>
+                    </div>
+                    <div class="bits">
+                        S
+                        <div class="info offset-12">Sound enabled</div>
                     </div>
                     <div class="bits">0000 00</div>
                     <div class="bits">
@@ -3214,6 +3226,23 @@
                         </table>
                     </div>
                 </div>
+                
+                <table class="table table-condensed" style="width: auto;">
+                    <caption>Sound channels</caption>
+                    <thead>
+                        <tr><th>Bits</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>000</td><td>Silence</td></tr>
+                        <tr><td>001</td><td>Silence</td></tr>
+                        <tr><td>010</td><td>Rear left</td></tr>
+                        <tr><td>011</td><td>Front left</td></tr>
+                        <tr><td>100</td><td>Rear right</td></tr>
+                        <tr><td>101</td><td>Front right</td></tr>
+                        <tr><td>110</td><td>Rear left+right</td></tr>
+                        <tr><td>111</td><td>Front left+right</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="message" id="0E2">
